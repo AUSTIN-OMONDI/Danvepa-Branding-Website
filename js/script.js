@@ -253,9 +253,23 @@ if (contactForm) {
     formNotice.className = 'form-notice';
 
     try {
-      const res = await fetch('/api/contact', {
+      // Build JSON payload from form fields
+      const json = {
+        name:        document.getElementById('name').value.trim(),
+        email:       document.getElementById('email').value.trim(),
+        company:     document.getElementById('company').value.trim(),
+        phone:       document.getElementById('phone').value.trim(),
+        serviceType: document.getElementById('serviceType').value,
+        budget:      document.getElementById('budget').value,
+        deadline:    document.getElementById('deadline').value,
+        quantity:    document.getElementById('quantity').value.trim(),
+        description: document.getElementById('description').value.trim()
+      };
+
+      const res = await fetch('/.netlify/functions/contact', {
         method: 'POST',
-        body: data
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(json)
       });
 
       const json = await res.json();
