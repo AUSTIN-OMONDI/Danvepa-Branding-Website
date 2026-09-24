@@ -2,23 +2,38 @@
    DANVEPA — main.js
    ========================================================================== */
 
+const WHATSAPP_NUMBER = '254725510494';
+const CONTACT_EMAIL   = 'kinevrin@gmail.com';
+
+/* ---------- Footer year ---------- */
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
 /* ---------- Marquee — clone items for seamless infinite loop ---------- */
-document.querySelectorAll('.marquee-track').forEach(track => {
-  // Clone all current children and append, so the track is 2× wide
-  // CSS animates exactly -50% (left) / 0→-50% reversed, creating a seamless loop
-  const items = Array.from(track.children);
-  items.forEach(item => track.appendChild(item.cloneNode(true)));
+document.querySelectorAll('.marquee-track, .hero-slogan-track').forEach(track => {
+  // Duplicate children so the track is 2× wide; CSS animates exactly -50%
+  Array.from(track.children).forEach(item => {
+    const clone = item.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    track.appendChild(clone);
+  });
 });
 
 /* ---------- Header scroll effect ---------- */
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 80);
+  header.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
 /* ---------- Mobile nav toggle ---------- */
 const navToggle = document.getElementById('navToggle');
 const nav = document.getElementById('nav');
+
+function closeNav() {
+  nav.classList.remove('open');
+  navToggle.classList.remove('open');
+  navToggle.setAttribute('aria-expanded', 'false');
+}
 
 navToggle.addEventListener('click', () => {
   const open = nav.classList.toggle('open');
@@ -26,54 +41,40 @@ navToggle.addEventListener('click', () => {
   navToggle.setAttribute('aria-expanded', open);
 });
 
-// Close nav when a link is clicked
 nav.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    navToggle.classList.remove('open');
-  });
-});
-
-/* ---------- Smooth scroll ---------- */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const target = document.querySelector(this.getAttribute('href'));
-    if (!target) return;
-    e.preventDefault();
-    const offset = 80; // header height
-    const top = target.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top, behavior: 'smooth' });
+    closeNav();
+    link.blur(); // collapse the desktop dropdown after choosing an item
   });
 });
 
 /* ---------- Active nav link on scroll ---------- */
 const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav a[href^="#"]');
+const navLinks = document.querySelectorAll('.nav > ul > li > a[href^="#"]');
+const solutionIds = ['solutions', 'branding', 'software', 'growth'];
 
 function setActiveLink() {
-  const scrollY = window.scrollY + 120;
+  const y = window.scrollY + 140;
   let current = '';
-  sections.forEach(sec => {
-    if (scrollY >= sec.offsetTop) current = sec.id;
-  });
+  sections.forEach(sec => { if (y >= sec.offsetTop) current = sec.id; });
+  if (current === 'stats') current = 'home';
+  if (solutionIds.includes(current)) current = 'solutions';
   navLinks.forEach(link => {
     link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
   });
 }
-
 window.addEventListener('scroll', setActiveLink, { passive: true });
 setActiveLink();
 
 /* ---------- Animated stat counters ---------- */
 function animateCounter(el) {
   const target = parseInt(el.dataset.target, 10);
-  const duration = 1800;
+  const duration = 1600;
   const start = performance.now();
-  const ease = t => 1 - Math.pow(1 - t, 3); // ease-out cubic
+  const ease = t => 1 - Math.pow(1 - t, 3);
 
   function update(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
+    const progress = Math.min((now - start) / duration, 1);
     el.textContent = Math.round(ease(progress) * target);
     if (progress < 1) requestAnimationFrame(update);
   }
@@ -94,15 +95,14 @@ if (statsStrip) statsObserver.observe(statsStrip);
 
 /* ---------- Scroll reveal ---------- */
 const revealEls = document.querySelectorAll(
-  '.service-card, .why-card, .work-item, .stat-item, .section-header, .about-content, .contact-info-card'
+  '.section-header, .solution-card, .segment-head, .service-card, .process-step, .about-media, .about-text, .work-item, .contact-form, .contact-info-card, .mock-app'
 );
 
 revealEls.forEach(el => {
   el.classList.add('reveal');
-  // stagger children within a grid
   const siblings = el.parentElement.querySelectorAll(':scope > .reveal');
   const idx = Array.from(siblings).indexOf(el);
-  if (idx > 0 && idx <= 4) el.classList.add(`reveal-delay-${idx}`);
+  if (idx > 0 && idx <= 5) el.classList.add(`reveal-delay-${idx}`);
 });
 
 const revealObserver = new IntersectionObserver(entries => {
@@ -112,186 +112,121 @@ const revealObserver = new IntersectionObserver(entries => {
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
 revealEls.forEach(el => revealObserver.observe(el));
 
-/* ---------- Portfolio filter ---------- */
-const filterBtns = document.querySelectorAll('.filter-btn');
-const workItems = document.querySelectorAll('.work-item[data-category]');
-
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    const filter = btn.dataset.filter;
-    workItems.forEach(item => {
-      const match = filter === 'all' || item.dataset.category === filter;
-      item.style.display = match ? '' : 'none';
-    });
-  });
-});
-
-/* ---------- File upload UX ---------- */
-const fileInput   = document.getElementById('brief');
-const fileList    = document.getElementById('fileList');
-const uploadArea  = document.getElementById('fileUploadArea');
-let selectedFiles = [];
-
-function renderFileList() {
-  fileList.innerHTML = '';
-  selectedFiles.forEach((file, i) => {
-    const item = document.createElement('div');
-    item.className = 'file-list-item';
-    item.innerHTML = `
-      <span>${file.name} <em style="opacity:0.5">(${(file.size / 1024).toFixed(0)} KB)</em></span>
-      <button type="button" aria-label="Remove file" data-index="${i}">&times;</button>
-    `;
-    item.querySelector('button').addEventListener('click', () => {
-      selectedFiles.splice(i, 1);
-      renderFileList();
-    });
-    fileList.appendChild(item);
-  });
-}
-
-if (fileInput) {
-  fileInput.addEventListener('change', () => {
-    Array.from(fileInput.files).forEach(f => {
-      if (f.size <= 10 * 1024 * 1024) selectedFiles.push(f);
-    });
-    renderFileList();
-    fileInput.value = '';
-  });
-
-  ['dragover', 'dragenter'].forEach(evt => {
-    uploadArea.addEventListener(evt, e => {
-      e.preventDefault();
-      uploadArea.classList.add('drag-over');
-    });
-  });
-
-  ['dragleave', 'drop'].forEach(evt => {
-    uploadArea.addEventListener(evt, e => {
-      e.preventDefault();
-      uploadArea.classList.remove('drag-over');
-    });
-  });
-
-  uploadArea.addEventListener('drop', e => {
-    Array.from(e.dataTransfer.files).forEach(f => {
-      if (f.size <= 10 * 1024 * 1024) selectedFiles.push(f);
-    });
-    renderFileList();
-  });
-}
-
 /* ---------- Set min date to today ---------- */
 const deadlineInput = document.getElementById('deadline');
-if (deadlineInput) {
-  const today = new Date().toISOString().split('T')[0];
-  deadlineInput.setAttribute('min', today);
+if (deadlineInput) deadlineInput.min = new Date().toISOString().split('T')[0];
+
+/* ---------- Form helpers ---------- */
+const $ = id => document.getElementById(id);
+
+function getFormValues() {
+  return {
+    name:        $('name').value.trim(),
+    email:       $('email').value.trim(),
+    company:     $('company').value.trim(),
+    phone:       $('phone').value.trim(),
+    serviceType: $('serviceType').value,
+    budget:      $('budget').value,
+    deadline:    $('deadline').value,
+    quantity:    $('quantity').value.trim(),
+    description: $('description').value.trim()
+  };
 }
 
-/* ---------- Form validation ---------- */
-function showError(id, msg) {
-  const el = document.getElementById(id);
-  const input = document.getElementById(id.replace('Error', ''));
-  if (el) el.textContent = msg;
-  if (input) input.classList.toggle('error', !!msg);
+function showError(field, msg) {
+  const errEl = $(`${field}Error`);
+  if (errEl) errEl.textContent = msg;
+  $(field).classList.toggle('error', !!msg);
 }
 
-function validateForm() {
+function validateForm(v) {
+  const checks = [
+    ['name',        !v.name,                                    'Please enter your name.'],
+    ['email',       !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email), 'Please enter a valid email address.'],
+    ['company',     !v.company,                                 'Please enter your organisation name.'],
+    ['serviceType', !v.serviceType,                             'Please select a service.'],
+    ['description', v.description.length < 20,                  'Please describe your project in at least 20 characters.']
+  ];
   let valid = true;
-
-  const name = document.getElementById('name').value.trim();
-  if (!name) { showError('nameError', 'Please enter your name.'); valid = false; }
-  else showError('nameError', '');
-
-  const email = document.getElementById('email').value.trim();
-  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRe.test(email)) { showError('emailError', 'Please enter a valid email address.'); valid = false; }
-  else showError('emailError', '');
-
-  const company = document.getElementById('company').value.trim();
-  if (!company) { showError('companyError', 'Please enter your organisation name.'); valid = false; }
-  else showError('companyError', '');
-
-  const service = document.getElementById('serviceType').value;
-  if (!service) { showError('serviceError', 'Please select a service type.'); valid = false; }
-  else showError('serviceError', '');
-
-  const desc = document.getElementById('description').value.trim();
-  if (desc.length < 20) { showError('descriptionError', 'Please describe your project in at least 20 characters.'); valid = false; }
-  else showError('descriptionError', '');
-
+  checks.forEach(([field, failed, msg]) => {
+    showError(field, failed ? msg : '');
+    if (failed) valid = false;
+  });
   return valid;
 }
 
 /* ---------- Contact form submission ---------- */
-const contactForm  = document.getElementById('contactForm');
-const submitBtn    = document.getElementById('submitBtn');
-const formNotice   = document.getElementById('formNotice');
+const contactForm = $('contactForm');
+const submitBtn   = $('submitBtn');
+const formNotice  = $('formNotice');
+
+function setLoading(loading) {
+  submitBtn.disabled = loading;
+  submitBtn.querySelector('.btn-text').hidden = loading;
+  submitBtn.querySelector('.btn-loader').hidden = !loading;
+}
+
+function showNotice(type, html) {
+  formNotice.className = `form-notice ${type}`;
+  formNotice.innerHTML = html;
+  formNotice.hidden = false;
+}
 
 if (contactForm) {
-  contactForm.addEventListener('submit', async function (e) {
+  contactForm.addEventListener('submit', async e => {
     e.preventDefault();
+    const values = getFormValues();
+    if (!validateForm(values)) return;
 
-    if (!validateForm()) return;
-
-    // Build FormData
-    const data = new FormData(this);
-    // Attach files manually since input is virtual
-    selectedFiles.forEach(file => data.append('files', file));
-
-    // UI loading state
-    submitBtn.disabled = true;
-    submitBtn.querySelector('.btn-text').hidden = true;
-    submitBtn.querySelector('.btn-loader').hidden = false;
+    setLoading(true);
     formNotice.hidden = true;
-    formNotice.className = 'form-notice';
 
     try {
-      // Build JSON payload from form fields
-      const json = {
-        name:        document.getElementById('name').value.trim(),
-        email:       document.getElementById('email').value.trim(),
-        company:     document.getElementById('company').value.trim(),
-        phone:       document.getElementById('phone').value.trim(),
-        serviceType: document.getElementById('serviceType').value,
-        budget:      document.getElementById('budget').value,
-        deadline:    document.getElementById('deadline').value,
-        quantity:    document.getElementById('quantity').value.trim(),
-        description: document.getElementById('description').value.trim()
-      };
-
       const res = await fetch('/.netlify/functions/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(json)
+        body: JSON.stringify(values)
       });
+      const result = await res.json().catch(() => ({}));
 
-      const json = await res.json();
+      if (!res.ok || !result.success) throw new Error(result.message || 'unavailable');
 
-      if (res.ok && json.success) {
-        formNotice.className = 'form-notice success';
-        formNotice.textContent = '✓ Your enquiry has been sent! We will respond within one business day.';
-        formNotice.hidden = false;
-        contactForm.reset();
-        selectedFiles = [];
-        renderFileList();
-      } else {
-        throw new Error(json.message || 'Something went wrong.');
-      }
+      showNotice('success', '✓ Your enquiry has been sent. We will respond within one business day.');
+      contactForm.reset();
     } catch (err) {
-      formNotice.className = 'form-notice error';
-      formNotice.textContent = `✗ ${err.message || 'Could not send your message. Please email us directly at hello@danvepa.com'}`;
-      formNotice.hidden = false;
+      showNotice('error',
+        `We couldn't send your enquiry online just now. Please tap <strong>Enquire on WhatsApp</strong> ` +
+        `or email us at <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>.`);
     } finally {
-      submitBtn.disabled = false;
-      submitBtn.querySelector('.btn-text').hidden = false;
-      submitBtn.querySelector('.btn-loader').hidden = true;
+      setLoading(false);
     }
+  });
+}
+
+/* ---------- WhatsApp enquiry ---------- */
+const whatsappBtn = $('whatsappBtn');
+if (whatsappBtn) {
+  whatsappBtn.addEventListener('click', () => {
+    const v = getFormValues();
+    const service = $('serviceType');
+    const serviceLabel = service.value ? service.value : '';
+
+    let msg = 'Hello Danvepa Enterprises,\n\nI would like to make an enquiry. Here are my details:\n\n';
+    if (v.name)         msg += `*Name:* ${v.name}\n`;
+    if (v.email)        msg += `*Email:* ${v.email}\n`;
+    if (v.company)      msg += `*Organisation:* ${v.company}\n`;
+    if (v.phone)        msg += `*Phone:* ${v.phone}\n`;
+    if (serviceLabel)   msg += `*Service Required:* ${serviceLabel}\n`;
+    if (v.budget)       msg += `*Budget (KES):* ${v.budget}\n`;
+    if (v.quantity)     msg += `*Scope / Quantity:* ${v.quantity}\n`;
+    if (v.deadline)     msg += `*Deadline:* ${v.deadline}\n`;
+    if (v.description)  msg += `\n*Project Details:*\n${v.description}\n`;
+    msg += '\nKindly advise on availability and pricing. Thank you.';
+
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
   });
 }

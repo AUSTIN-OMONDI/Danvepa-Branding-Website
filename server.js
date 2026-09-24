@@ -245,9 +245,9 @@ app.post('/api/contact', limiter, upload.array('files', 5), async (req, res) => 
             <p style="font-size:14px; line-height:1.7; color:#555;">If you have any urgent questions, reply to this email or call us directly.</p>
             <p style="font-size:14px; color:#333; margin-top:28px;">
               <strong>Danvepa</strong><br>
-              Corporate Branding &amp; Print Production<br>
+              Corporate Solutions<br>
               Nairobi, Kenya<br>
-              <a href="mailto:hello@danvepa.com" style="color:#03358a;">hello@danvepa.com</a>
+              <a href="mailto:kinevrin@gmail.com" style="color:#03358a;">kinevrin@gmail.com</a>
             </p>
           </div>
         </div>

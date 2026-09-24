@@ -1,7 +1,7 @@
 {
   "name": "danvepa",
   "version": "1.0.0",
-  "description": "Danvepa — Corporate Branding & Print Production",
+  "description": "Danvepa — Corporate Solutions",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
