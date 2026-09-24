@@ -1,961 +1,593 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Danvepa – Corporate Solutions | Nairobi, Kenya</title>
-  <meta name="description" content="Danvepa Corporate Solutions — Branding Solutions, Software Solutions and Business Growth Solutions for organisations across Kenya. Design, printing, signage, websites, CRM, POS, staff training, strategy and marketing."/>
-  <meta name="theme-color" content="#03358a">
-
+  <meta name="description" content="Danvepa Corporate Solutions: Branding, Software and Business Growth Solutions for organisations across Kenya. Design, printing, signage, apparel, websites, CRM, stock management, POS, training, strategy, marketing and advisory.">
+  <meta name="theme-color" content="#070b17">
+  <meta property="og:title" content="Danvepa – Corporate Solutions">
+  <meta property="og:description" content="Branding, Software and Business Growth Solutions for organisations across Kenya.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
-
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="images/Danvepa-logo.png" type="image/png">
   <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 
+  <div class="bg-noise" aria-hidden="true"></div>
+
   <!-- ===== HEADER ===== -->
   <header class="header" id="header">
-    <div class="container header-inner">
+    <div class="header-bar">
       <a href="#home" class="logo" aria-label="Danvepa home">
-        <img src="images/Danvepa-logo.png" alt="Danvepa" class="logo-img">
+        <img src="images/Danvepa-logo.png" alt="Danvepa">
       </a>
-      <nav class="nav" id="nav" aria-label="Main">
+      <nav class="nav" aria-label="Main">
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li class="has-dropdown">
-            <a href="#solutions">Solutions
-              <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-            </a>
-            <div class="dropdown">
-              <a href="#branding" class="dropdown-item">
-                <span class="dd-dot dd-dot--brand"></span>
-                <span><strong>Branding Solutions</strong><small>Design · Printing · Signage · Apparel · Stationeries</small></span>
-              </a>
-              <a href="#software" class="dropdown-item">
-                <span class="dd-dot dd-dot--soft"></span>
-                <span><strong>Software Solutions</strong><small>Websites · CRM · Stock Management · Point of Sale</small></span>
-              </a>
-              <a href="#growth" class="dropdown-item">
-                <span class="dd-dot dd-dot--grow"></span>
-                <span><strong>Business Growth Solutions</strong><small>Training · Strategy · Marketing · Development · Advisory</small></span>
-              </a>
+          <li class="has-dd">
+            <a href="#solutions">Solutions <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+            <div class="dd">
+                <a href="#branding" class="dd-item dd--brand" data-goto="branding">
+                  <span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.6 7.6"/><circle cx="11" cy="11" r="2"/></svg></span>
+                  <span><strong>Branding Solutions</strong><small>Design · Printing · Signage · Apparel +1 more</small></span>
+                </a>
+                <a href="#software" class="dd-item dd--soft" data-goto="software">
+                  <span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M9 8l-2 2 2 2M15 8l2 2-2 2"/></svg></span>
+                  <span><strong>Software Solutions</strong><small>Websites · CRM · Stock Management · Point of Sale</small></span>
+                </a>
+                <a href="#growth" class="dd-item dd--grow" data-goto="growth">
+                  <span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg></span>
+                  <span><strong>Business Growth Solutions</strong><small>Staff Training · Strategic Plans · Marketing Solutions · Business Development +4 more</small></span>
+                </a>
             </div>
           </li>
           <li><a href="#about">About</a></li>
-          <li><a href="#work">Our Work</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#work">Work</a></li>
           <li><a href="#clients">Clients</a></li>
-          <li><a href="#contact" class="btn-contact">Request a Quote</a></li>
         </ul>
       </nav>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="header-cta">
+        <a href="tel:+254725510494" class="icon-btn" aria-label="Call Danvepa"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg></a>
+        <a href="#contact" class="btn btn-primary btn-sm">Get a Quote</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span></button>
+      </div>
     </div>
   </header>
 
+  <!-- Mobile menu -->
+  <div class="m-menu" id="mobileMenu" aria-hidden="true">
+    <div class="m-menu-inner">
+      <p class="m-label">Solutions</p>
+      <div class="m-segs"><a href="#branding" data-goto="branding" class="m-seg m-seg--brand"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.6 7.6"/><circle cx="11" cy="11" r="2"/></svg></span>Branding Solutions</a><a href="#software" data-goto="software" class="m-seg m-seg--soft"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M9 8l-2 2 2 2M15 8l2 2-2 2"/></svg></span>Software Solutions</a><a href="#growth" data-goto="growth" class="m-seg m-seg--grow"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg></span>Business Growth Solutions</a></div>
+      <p class="m-label">Company</p>
+      <nav class="m-links">
+        <a href="#about">About</a><a href="#process">Process</a><a href="#work">Our Work</a><a href="#clients">Clients</a><a href="#contact">Contact</a>
+      </nav>
+      <div class="m-contact">
+        <a href="tel:+254725510494"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg> 0725 510 494</a>
+        <a href="mailto:kinevrin@gmail.com"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg> kinevrin@gmail.com</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
   <!-- ===== HERO ===== -->
-  <section id="home" class="hero">
-    <div class="hero-bg" aria-hidden="true">
-      <div class="hero-grid"></div>
-      <div class="hero-glow hero-glow--red"></div>
-      <div class="hero-glow hero-glow--blue"></div>
-    </div>
+  <section class="hero" id="home">
+    <div class="aurora" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+    <div class="hero-grid" aria-hidden="true"></div>
 
-    <div class="container hero-inner">
+    <div class="wrap hero-inner">
       <div class="hero-copy">
-        <span class="hero-eyebrow"><span class="pulse"></span>Danvepa Enterprises Ltd · Nairobi, Kenya</span>
-        <h1>Corporate<br><span class="text-gradient">Solutions</span></h1>
-        <p class="hero-sub">
-          Branding that gets you noticed, software that keeps you organised and
-          strategies that help you grow. One partner for how your organisation
-          <em>looks</em>, <em>works</em> and <em>grows</em>.
-        </p>
+        <a href="#solutions" class="pill"><span class="pill-new">New</span> Branding · Software · Growth <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <h1>
+          <span class="h1-line">Corporate</span>
+          <span class="h1-line grad">Solutions</span>
+        </h1>
+        <p class="hero-rotate">that make your business <span class="rotator" aria-live="polite"><b class="is-on">look professional.</b><b>run smarter.</b><b>grow faster.</b></span></p>
+        <p class="hero-sub">Danvepa is one partner for how your organisation looks, works and grows. We handle everything from uniforms and signage to POS systems and strategic plans.</p>
         <div class="hero-actions">
-          <a href="#solutions" class="btn btn-primary">Explore Our Solutions
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a href="#contact" class="btn btn-outline-light">Request a Quote</a>
+          <a href="#solutions" class="btn btn-primary btn-lg">Explore Solutions <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="https://wa.me/254725510494" class="btn btn-glass btn-lg" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp Us</a>
         </div>
+        <ul class="hero-proof">
+          <li><strong data-count="200">0</strong><span>+</span><em>Projects delivered</em></li>
+          <li><strong data-count="25">0</strong><span>+</span><em>Happy clients</em></li>
+          <li><strong data-count="17">0</strong><em>Core services</em></li>
+        </ul>
       </div>
 
-      <div class="hero-stack" aria-label="Our three solution areas">
-        <a href="#branding" class="stack-card stack-card--brand">
-          <span class="stack-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
-          </span>
-          <span class="stack-text">
-            <span class="stack-label">01 · Branding Solutions</span>
-            <span class="stack-desc">Design, printing, signage, apparel &amp; stationeries</span>
-          </span>
-          <svg class="stack-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg>
-        </a>
-        <a href="#software" class="stack-card stack-card--soft">
-          <span class="stack-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M9 8l-2 2 2 2M15 8l2 2-2 2"/></svg>
-          </span>
-          <span class="stack-text">
-            <span class="stack-label">02 · Software Solutions</span>
-            <span class="stack-desc">Websites, CRM, stock management &amp; point of sale</span>
-          </span>
-          <svg class="stack-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg>
-        </a>
-        <a href="#growth" class="stack-card stack-card--grow">
-          <span class="stack-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg>
-          </span>
-          <span class="stack-text">
-            <span class="stack-label">03 · Business Growth Solutions</span>
-            <span class="stack-desc">Training, strategy, marketing &amp; advisory</span>
-          </span>
-          <svg class="stack-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg>
-        </a>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hv-main">
+          <img src="https://images.unsplash.com/photo-1573164574397-dd250bc8a598?auto=format&fit=crop&w=1000&q=75" alt="">
+          <div class="hv-shade"></div>
+        </div>
+        <div class="float f-brand"><span class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.6 7.6"/><circle cx="11" cy="11" r="2"/></svg></span><div><b>Brand kit ready</b><small>Logo · Cards · Uniforms</small></div></div>
+        <div class="float f-soft">
+          <div class="f-row"><small>Today's sales</small><em>▲ 12%</em></div>
+          <b class="f-big">KES 184,250</b>
+          <div class="f-bars"><i style="--h:40%"></i><i style="--h:62%"></i><i style="--h:48%"></i><i style="--h:75%"></i><i style="--h:66%"></i><i style="--h:90%"></i></div>
+        </div>
+        <div class="float f-grow"><span class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg></span><div><b>Strategy workshop</b><small>Growth plan 2026–2030</small></div></div>
       </div>
     </div>
 
-    <div class="hero-slogan" aria-hidden="true">
-      <div class="hero-slogan-track">
-        <span>A delighted customer is our pleasure</span><span class="star">★</span>
-        <span>A delighted customer is our pleasure</span><span class="star">★</span>
-        <span>A delighted customer is our pleasure</span><span class="star">★</span>
-        <span>A delighted customer is our pleasure</span><span class="star">★</span>
-        <span>A delighted customer is our pleasure</span><span class="star">★</span>
-        <span>A delighted customer is our pleasure</span><span class="star">★</span>
-      </div>
+    <div class="trust">
+      <p>Trusted by organisations across Kenya</p>
+      <div class="logo-marquee"><ul class="lm-track"><li><img src="images/Crayson-Pharmacy.jpg" alt="Crayson Pharmacy" loading="lazy"></li><li><img src="images/ARSO.jpg" alt="ARSO" loading="lazy"></li><li><img src="images/DOCTOR'S-CENTRE.jpg" alt="Doctor&#x27;s Centre" loading="lazy"></li><li><img src="images/ZOE.jpg" alt="Zoe TV" loading="lazy"></li><li><img src="images/DORMIN-HOLDINGS-LTD.jpg" alt="Dormin Holdings" loading="lazy"></li><li><img src="images/MOGAYA.jpg" alt="Mogaya Contractors" loading="lazy"></li><li><img src="images/PLU-DEVELOPERS.jpg" alt="PLU Developers" loading="lazy"></li><li><img src="images/NOVA-ABODE.jpg" alt="Nova Abode" loading="lazy"></li><li><img src="images/THE-KITUI-HOSPITAL.jpg" alt="The Kitui Hospital" loading="lazy"></li><li><img src="images/CARE-CALL.jpg" alt="CareCall" loading="lazy"></li><li><img src="images/PEGADA-PAINTS.jpg" alt="Pegada Paints" loading="lazy"></li><li><img src="images/KAMASHINANI-FOUNDATION.jpg" alt="Kamashinani Foundation" loading="lazy"></li><li><img src="images/ZIJANI.jpg" alt="Zijani" loading="lazy"></li><li><img src="images/CANAAN-COURIER.jpg" alt="Canaan Courier" loading="lazy"></li><li><img src="images/ADEN-ACE.jpg" alt="Eden Ace" loading="lazy"></li></ul></div>
     </div>
   </section>
 
-  <!-- ===== STATS STRIP ===== -->
-  <section id="stats" class="stats-strip">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <span class="stat-number" data-target="200">0</span><span class="stat-suffix">+</span>
-          <span class="stat-label">Projects Delivered</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number" data-target="25">0</span><span class="stat-suffix">+</span>
-          <span class="stat-label">Happy Clients</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number" data-target="3">0</span><span class="stat-suffix"></span>
-          <span class="stat-label">Solution Areas</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number" data-target="17">0</span><span class="stat-suffix"></span>
-          <span class="stat-label">Core Services</span>
-        </div>
+  <!-- ===== SOLUTIONS BENTO ===== -->
+  <section class="section" id="solutions">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">What we do</span>
+        <h2>Three solutions.<br><span class="grad">One partner.</span></h2>
+        <p>Every service you need to look professional, run efficiently and grow with confidence, grouped into three clear solution areas.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== SOLUTIONS OVERVIEW ===== -->
-  <section id="solutions" class="section solutions">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">What We Do</span>
-        <h2>Three Solutions. One Partner.</h2>
-        <p class="section-sub">Each solution area brings together related services, so you can come to one team for your brand, your systems and your growth.</p>
-      </div>
-
-      <div class="solutions-grid">
-        <article class="solution-card solution-card--brand">
-          <div class="solution-top">
-            <span class="solution-num">01</span>
-            <span class="solution-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
-            </span>
-          </div>
-          <h3>Branding Solutions</h3>
-          <p>Everything your organisation needs to look professional and consistent, from the logo on your letterhead to the sign above your door.</p>
-          <ul class="chip-list">
-            <li>Design</li><li>Printing</li><li>Signage</li><li>Apparel</li><li>Stationeries</li>
-          </ul>
-          <a href="#branding" class="solution-link">Explore Branding <span>→</span></a>
-        </article>
-
-        <article class="solution-card solution-card--soft">
-          <div class="solution-top">
-            <span class="solution-num">02</span>
-            <span class="solution-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M9 8l-2 2 2 2M15 8l2 2-2 2"/></svg>
-            </span>
-          </div>
-          <h3>Software Solutions</h3>
-          <p>Business systems that take the paperwork out of daily operations, so you can sell, track and serve customers more efficiently.</p>
-          <ul class="chip-list">
-            <li>Websites</li><li>CRM</li><li>Stock Management</li><li>Point of Sale</li>
-          </ul>
-          <a href="#software" class="solution-link">Explore Software <span>→</span></a>
-        </article>
-
-        <article class="solution-card solution-card--grow">
-          <div class="solution-top">
-            <span class="solution-num">03</span>
-            <span class="solution-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg>
-            </span>
-          </div>
-          <h3>Business Growth Solutions</h3>
-          <p>Practical support and expert advice for your people, planning, marketing and performance, so your organisation grows with direction and purpose.</p>
-          <ul class="chip-list">
-            <li>Staff Training</li><li>Strategic Plans</li><li>Marketing Solutions</li><li>Business Development</li><li>Business Performance</li><li>Enterprise Growth</li><li>Corporate Advisory</li><li>Business Excellence</li>
-          </ul>
-          <a href="#growth" class="solution-link">Explore Growth <span>→</span></a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 01 BRANDING SOLUTIONS ===== -->
-  <section id="branding" class="section segment segment--brand">
-    <div class="container">
-      <div class="segment-head">
-        <div>
-          <span class="segment-tag"><span class="segment-num">01</span> Branding Solutions</span>
-          <h2>Make every touchpoint<br>look like you mean it.</h2>
-        </div>
-        <p class="segment-intro">Your brand is judged on every business card, uniform, banner and report. We design and produce all of them in-house, on brief and on deadline, so your organisation looks consistent everywhere.</p>
-      </div>
-
-      <figure class="segment-visual">
-        <img src="https://images.unsplash.com/photo-1693031630369-bd429a57f115?auto=format&amp;fit=crop&amp;w=1800&amp;q=80" alt="Large-format printer producing a branded banner" loading="lazy" style="object-position:center 40%">
-        <figcaption>
-          <span class="visual-kicker">From concept to install</span>
-          <strong>Designed, printed and delivered under one roof.</strong>
-          <ul class="visual-chips"><li>Design</li><li>Printing</li><li>Signage</li><li>Apparel</li><li>Stationeries</li></ul>
-        </figcaption>
-      </figure>
-
-      <div class="service-grid service-grid--3">
-        <article class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2.7a9.3 9.3 0 100 18.6c.9 0 1.5-.7 1.5-1.5 0-.4-.2-.8-.4-1-.3-.3-.4-.6-.4-1 0-.9.7-1.5 1.5-1.5h1.8a5.2 5.2 0 005.2-5.2C21.3 6.6 17.1 2.7 12 2.7z"/><circle cx="7.5" cy="11.5" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="15.5" cy="7.5" r="1"/></svg>
-          </div>
-          <h3>Design</h3>
-          <p>Creative design that builds a clear, memorable brand identity across print and digital.</p>
-          <ul class="service-list">
-            <li>Logo &amp; brand identity</li>
-            <li>Brand guidelines &amp; style manuals</li>
-            <li>Marketing collateral &amp; templates</li>
-            <li>Packaging &amp; label design</li>
-            <li>Presentation &amp; pitch decks</li>
-          </ul>
-        </article>
-
-        <article class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-          </div>
-          <h3>Printing</h3>
-          <p>Professional print production for corporates, NGOs and government, from a single report to a full print run.</p>
-          <ul class="service-list">
-            <li>Brochures, flyers &amp; posters</li>
-            <li>Annual &amp; financial reports</li>
-            <li>Company profiles &amp; catalogues</li>
-            <li>Invoice &amp; receipt books</li>
-            <li>Tender document production</li>
-          </ul>
-        </article>
-
-        <article class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="11" rx="1.5"/><path d="M12 14v7M8 21h8"/><path d="M7 8h10M7 11h6"/></svg>
-          </div>
-          <h3>Signage</h3>
-          <p>High-impact displays for offices, events, streets and vehicles that make your presence impossible to miss.</p>
-          <ul class="service-list">
-            <li>Indoor &amp; outdoor signboards</li>
-            <li>Roll-up, X-frame &amp; pop-up banners</li>
-            <li>Teardrop &amp; branded flags</li>
-            <li>Vehicle &amp; fleet branding</li>
-            <li>Promotional counters &amp; tables</li>
-          </ul>
-        </article>
-
-        <article class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.4 3.5L16 2a4 4 0 01-8 0L3.6 3.5a2 2 0 00-1.3 2.2l.6 3.5a1 1 0 001 .8H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.2a1 1 0 001-.8l.6-3.5a2 2 0 00-1.4-2.2z"/></svg>
-          </div>
-          <h3>Apparel</h3>
-          <p>Branded uniforms and workwear, screen-printed or embroidered to your exact specification.</p>
-          <ul class="service-list">
-            <li>Polo shirts, T-shirts &amp; dress shirts</li>
-            <li>Staff uniforms &amp; workwear</li>
-            <li>Coveralls, lab coats &amp; hi-vis wear</li>
-            <li>Caps, hats &amp; hard hats</li>
-            <li>Hoodies, tracksuits &amp; sports kits</li>
-          </ul>
-        </article>
-
-        <article class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M9 7h7M9 11h5"/></svg>
-          </div>
-          <h3>Stationeries</h3>
-          <p>Premium branded stationery for everyday corporate use, from first impressions to internal documents.</p>
-          <ul class="service-list">
-            <li>Business cards &amp; letterheads</li>
-            <li>Notebooks, diaries &amp; journals</li>
-            <li>Presentation folders &amp; files</li>
-            <li>Branded pens &amp; desk items</li>
-            <li>Envelopes, calendars &amp; ID holders</li>
-          </ul>
-        </article>
-
-        <article class="service-card service-card--cta">
-          <span class="cta-kicker">Product Catalogue</span>
-          <h3>See our full range of branded products</h3>
-          <p>Browse 100+ items, including promotional products and corporate gifts, in our downloadable catalogue.</p>
-          <a href="Danvepa Enterprises Ltd New Catalogue.pdf" class="btn btn-light" download>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M7 10l5 5 5-5M12 15V3"/></svg>
-            Download Catalogue
-          </a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 02 SOFTWARE SOLUTIONS ===== -->
-  <section id="software" class="section segment segment--soft">
-    <div class="segment-bg" aria-hidden="true"></div>
-    <div class="container">
-      <div class="segment-head segment-head--split">
-        <div>
-          <span class="segment-tag"><span class="segment-num">02</span> Software Solutions</span>
-          <h2>Systems that run your business, so you don't have to chase it.</h2>
-          <p class="segment-intro">We build and set up software designed around how Kenyan businesses actually work. It's simple for your team to use and gives you a clear view of your sales, stock and customers.</p>
-          <ul class="check-list">
-            <li>Set up, training &amp; ongoing support</li>
-            <li>Works on desktop, tablet &amp; mobile</li>
-            <li>Built to grow with your business</li>
-          </ul>
-        </div>
-
-        <div class="mock-app" aria-hidden="true">
-          <div class="mock-bar"><i></i><i></i><i></i><span>dashboard.danvepa</span></div>
-          <div class="mock-body">
-            <div class="mock-side"><b></b><b></b><b></b><b></b><b></b></div>
-            <div class="mock-main">
-              <div class="mock-kpis">
-                <div><small>Today's Sales</small><strong>KES 184,250</strong><em>▲ 12%</em></div>
-                <div><small>Low Stock</small><strong>7 items</strong><em class="warn">Reorder</em></div>
-                <div><small>New Leads</small><strong>23</strong><em>▲ 8%</em></div>
-              </div>
-              <div class="mock-chart">
-                <span style="--h:38%"></span><span style="--h:52%"></span><span style="--h:44%"></span><span style="--h:66%"></span><span style="--h:58%"></span><span style="--h:74%"></span><span style="--h:62%"></span><span style="--h:88%"></span><span style="--h:80%"></span><span style="--h:94%"></span>
-              </div>
+      <div class="bento">
+        <a href="#branding" class="bento-card bento--brand" data-spot data-goto="branding">
+          <img src="https://images.unsplash.com/photo-1693031630369-bd429a57f115?auto=format&fit=crop&w=900&q=75" alt="" loading="lazy">
+          <div class="bento-body">
+            <div class="bento-head">
+              <span class="bento-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.6 7.6"/><circle cx="11" cy="11" r="2"/></svg></span>
+              <span class="bento-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
             </div>
+            <span class="bento-num">01 / 5 services</span>
+            <h3>Branding Solutions</h3>
+            <ul class="bento-chips"><li>Design</li><li>Printing</li><li>Signage</li><li>Apparel</li><li>Stationeries</li></ul>
           </div>
+        </a>
+        <a href="#software" class="bento-card bento--soft" data-spot data-goto="software">
+          <img src="https://images.unsplash.com/photo-1758876202610-bae5608f5051?auto=format&fit=crop&w=900&q=75" alt="" loading="lazy">
+          <div class="bento-body">
+            <div class="bento-head">
+              <span class="bento-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M9 8l-2 2 2 2M15 8l2 2-2 2"/></svg></span>
+              <span class="bento-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+            </div>
+            <span class="bento-num">02 / 4 services</span>
+            <h3>Software Solutions</h3>
+            <ul class="bento-chips"><li>Websites</li><li>CRM</li><li>Stock Management</li><li>Point of Sale</li></ul>
+          </div>
+        </a>
+        <a href="#growth" class="bento-card bento--grow" data-spot data-goto="growth">
+          <img src="https://images.unsplash.com/photo-1573164574511-73c773193279?auto=format&fit=crop&w=900&q=75" alt="" loading="lazy">
+          <div class="bento-body">
+            <div class="bento-head">
+              <span class="bento-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg></span>
+              <span class="bento-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+            </div>
+            <span class="bento-num">03 / 8 services</span>
+            <h3>Business Growth Solutions</h3>
+            <ul class="bento-chips"><li>Staff Training</li><li>Strategic Plans</li><li>Marketing Solutions</li><li>Business Development</li><li>Business Performance</li><li>Enterprise Growth</li><li>Corporate Growth &amp; Advisory</li><li>Business Excellence</li></ul>
+          </div>
+        </a>
+        <div class="bento-stat" data-spot>
+          <strong>17</strong><span>core services under one roof</span>
         </div>
-      </div>
-
-      <div class="service-grid service-grid--4">
-        <article class="service-card service-card--dark">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-          </div>
-          <h3>Websites</h3>
-          <p>Fast, modern, mobile-friendly websites that build trust and bring in enquiries.</p>
-          <ul class="service-list">
-            <li>Corporate &amp; portfolio websites</li>
-            <li>E-commerce &amp; online stores</li>
-            <li>Domains, hosting &amp; business email</li>
-            <li>Updates, maintenance &amp; SEO</li>
-          </ul>
-        </article>
-
-        <article class="service-card service-card--dark">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-          </div>
-          <h3>CRM</h3>
-          <p>Keep every client, lead and conversation in one place, and never miss a follow-up.</p>
-          <ul class="service-list">
-            <li>Lead &amp; client tracking</li>
-            <li>Sales pipeline management</li>
-            <li>Automated SMS &amp; email follow-ups</li>
-            <li>Customer insights &amp; reports</li>
-          </ul>
-        </article>
-
-        <article class="service-card service-card--dark">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg>
-          </div>
-          <h3>Stock Management</h3>
-          <p>Know exactly what you have, where it is and when to reorder, across every branch.</p>
-          <ul class="service-list">
-            <li>Real-time inventory tracking</li>
-            <li>Multi-branch &amp; warehouse stock</li>
-            <li>Low-stock &amp; reorder alerts</li>
-            <li>Suppliers &amp; purchase orders</li>
-          </ul>
-        </article>
-
-        <article class="service-card service-card--dark">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8v4H8z"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg>
-          </div>
-          <h3>Point of Sale</h3>
-          <p>Quick, reliable checkout for shops, restaurants and pharmacies, with sales data you can trust.</p>
-          <ul class="service-list">
-            <li>Fast checkout &amp; barcode scanning</li>
-            <li>M-Pesa, card &amp; cash payments</li>
-            <li>Receipts &amp; invoicing</li>
-            <li>Daily sales &amp; staff reports</li>
-          </ul>
-        </article>
+        <div class="bento-stat bento-stat--alt" data-spot>
+          <strong>48<small>hr</small></strong><span>express production available</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 03 BUSINESS GROWTH SOLUTIONS ===== -->
-  <section id="growth" class="section segment segment--grow">
-    <div class="container">
-      <div class="segment-head">
-        <div>
-          <span class="segment-tag"><span class="segment-num">03</span> Business Growth Solutions</span>
-          <h2>Build the people, plans and partnerships to grow.</h2>
-        </div>
-        <p class="segment-intro">A strong brand and good systems are only the start. Our growth and advisory team helps you train your people, sharpen your strategy, win new business and run a more profitable, better-managed organisation.</p>
+  <!-- ===== SOLUTION EXPLORER ===== -->
+  <section class="section explorer" id="explore">
+    <div class="wrap">
+      <div class="head head--left">
+        <span class="eyebrow">Explore our services</span>
+        <h2>Pick a solution. <span class="muted">See everything inside.</span></h2>
       </div>
-
-      <figure class="segment-visual">
-        <img src="https://images.unsplash.com/photo-1573164574511-73c773193279?auto=format&amp;fit=crop&amp;w=1800&amp;q=80" alt="Business team in a strategy session around a boardroom table" loading="lazy" style="object-position:center 80%">
-        <figcaption>
-          <span class="visual-kicker">Growth &amp; Advisory</span>
-          <strong>Hands-on support for your people, strategy and performance.</strong>
-          <ul class="visual-chips"><li>Training</li><li>Strategy</li><li>Marketing</li><li>Development</li><li>Advisory</li></ul>
-        </figcaption>
-      </figure>
-
-      <div class="service-grid service-grid--4 growth-grid">
-        <article class="service-card service-card--feature">
-          <span class="feature-num">A</span>
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      <div class="tabs" role="tablist" aria-label="Solutions">
+          <button class="tab is-active" id="tab-branding" role="tab" aria-selected="true" aria-controls="branding" data-tab="branding" data-key="brand">
+            <span class="tab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.6 7.6"/><circle cx="11" cy="11" r="2"/></svg></span>
+            <span class="tab-text"><small>01</small>Branding Solutions</span>
+          </button>
+          <button class="tab" id="tab-software" role="tab" aria-selected="false" aria-controls="software" data-tab="software" data-key="soft">
+            <span class="tab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M9 8l-2 2 2 2M15 8l2 2-2 2"/></svg></span>
+            <span class="tab-text"><small>02</small>Software Solutions</span>
+          </button>
+          <button class="tab" id="tab-growth" role="tab" aria-selected="false" aria-controls="growth" data-tab="growth" data-key="grow">
+            <span class="tab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg></span>
+            <span class="tab-text"><small>03</small>Business Growth Solutions</span>
+          </button>
+        <span class="tab-glider" aria-hidden="true"></span>
+      </div>
+      <div class="panels">
+        <div class="panel panel--brand is-active" id="branding" role="tabpanel" aria-labelledby="tab-branding">
+          <aside class="panel-intro">
+            <figure class="panel-photo">
+              <img src="https://images.unsplash.com/photo-1693031630369-bd429a57f115?auto=format&fit=crop&w=1200&q=75" alt="Large-format printer producing a branded banner" loading="lazy">
+              <figcaption><span class="dot"></span>5 services</figcaption>
+            </figure>
+            <span class="panel-num">01</span>
+            <h3>Make every touchpoint look like you mean it.</h3>
+            <p>Your brand is judged on every business card, uniform, banner and report. We design and produce all of them under one roof, on brief and on deadline.</p>
+            <a href="#contact" class="btn btn-accent" data-service="Branding Solutions">Get a Branding quote <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </aside>
+          <div class="panel-main">
+            <div class="panel-cards">
+            <article class="svc" data-spot>
+              <div class="svc-top">
+                <span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7a9.3 9.3 0 100 18.6c.9 0 1.5-.7 1.5-1.5 0-.4-.2-.8-.4-1-.3-.3-.4-.6-.4-1 0-.9.7-1.5 1.5-1.5h1.8a5.2 5.2 0 005.2-5.2C21.3 6.6 17.1 2.7 12 2.7z"/><circle cx="7.5" cy="11.5" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="15.5" cy="7.5" r="1"/></svg></span>
+                <span class="svc-idx">01.1</span>
+              </div>
+              <h4>Design</h4>
+              <p>Creative design that builds a clear, memorable brand identity across print and digital.</p>
+              <ul class="svc-tags"><li>Logo &amp; brand identity</li><li>Brand guidelines</li><li>Marketing collateral</li><li>Packaging &amp; labels</li><li>Pitch decks</li></ul>
+            </article>
+            <article class="svc" data-spot>
+              <div class="svc-top">
+                <span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></span>
+                <span class="svc-idx">01.2</span>
+              </div>
+              <h4>Printing</h4>
+              <p>Professional print production for corporates, NGOs and government, from one report to a full run.</p>
+              <ul class="svc-tags"><li>Brochures &amp; flyers</li><li>Annual reports</li><li>Company profiles</li><li>Receipt books</li><li>Tender documents</li></ul>
+            </article>
+            <article class="svc" data-spot>
+              <div class="svc-top">
+                <span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="11" rx="1.5"/><path d="M12 14v7M8 21h8M7 8h10M7 11h6"/></svg></span>
+                <span class="svc-idx">01.3</span>
+              </div>
+              <h4>Signage</h4>
+              <p>High-impact displays for offices, events, streets and vehicles that make your presence impossible to miss.</p>
+              <ul class="svc-tags"><li>Indoor &amp; outdoor signs</li><li>Roll-up &amp; pop-up banners</li><li>Branded flags</li><li>Vehicle &amp; fleet branding</li><li>Promo counters</li></ul>
+            </article>
+            <article class="svc" data-spot>
+              <div class="svc-top">
+                <span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 3.5L16 2a4 4 0 01-8 0L3.6 3.5a2 2 0 00-1.3 2.2l.6 3.5a1 1 0 001 .8H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.2a1 1 0 001-.8l.6-3.5a2 2 0 00-1.4-2.2z"/></svg></span>
+                <span class="svc-idx">01.4</span>
+              </div>
+              <h4>Apparel</h4>
+              <p>Branded uniforms and workwear, screen-printed or embroidered to your exact specification.</p>
+              <ul class="svc-tags"><li>Polo &amp; T-shirts</li><li>Staff uniforms</li><li>Coveralls &amp; hi-vis</li><li>Caps &amp; hats</li><li>Hoodies &amp; sports kits</li></ul>
+            </article>
+            <article class="svc" data-spot>
+              <div class="svc-top">
+                <span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M9 7h7M9 11h5"/></svg></span>
+                <span class="svc-idx">01.5</span>
+              </div>
+              <h4>Stationeries</h4>
+              <p>Premium branded stationery for everyday corporate use, from first impressions to internal documents.</p>
+              <ul class="svc-tags"><li>Business cards</li><li>Letterheads</li><li>Notebooks &amp; diaries</li><li>Folders</li><li>Branded pens</li></ul>
+            </article>
+            <article class="svc svc--cta">
+              <span class="svc-kicker">Product Catalogue</span>
+              <h4>100+ branded products, promotional items &amp; corporate gifts.</h4>
+              <a href="Danvepa Enterprises Ltd New Catalogue.pdf" class="btn btn-white btn-sm" download><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M7 10l5 5 5-5M12 15V3"/></svg> Download PDF</a>
+            </article>
+            </div>
+            <p class="swipe-hint">Swipe to see all services <span class="swipe-dots"></span></p>
           </div>
-          <h3>Staff Training</h3>
-          <p>Practical, hands-on training that raises the standard of service and performance across your team.</p>
-          <ul class="service-list">
-            <li>Customer service excellence</li>
-            <li>Sales &amp; negotiation skills</li>
-            <li>Leadership &amp; supervision</li>
-            <li>Team building &amp; onboarding</li>
-            <li>On-site corporate workshops</li>
-          </ul>
-        </article>
-
-        <article class="service-card service-card--feature">
-          <span class="feature-num">B</span>
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <div class="panel panel--soft" id="software" role="tabpanel" aria-labelledby="tab-software">
+          <aside class="panel-intro">
+            <figure class="panel-photo">
+              <img src="https://images.unsplash.com/photo-1758876202610-bae5608f5051?auto=format&fit=crop&w=1200&q=75" alt="Business owner working on a laptop in a bright office" loading="lazy">
+              <figcaption><span class="dot"></span>4 services</figcaption>
+            </figure>
+            <span class="panel-num">02</span>
+            <h3>Systems that run your business, so you don't have to chase it.</h3>
+            <p>Software built around how Kenyan businesses actually work. It's simple for your team to use and gives you a live view of sales, stock and customers.</p>
+            <a href="#contact" class="btn btn-accent" data-service="Software Solutions">Get a Software quote <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </aside>
+          <div class="panel-main">
+            <div class="panel-cards">
+            <article class="svc" data-spot>
+              <div class="svc-top">
+                <span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></span>
+                <span class="svc-idx">02.1</span>
+              </div>
+              <h4>Websites</h4>
+              <p>Fast, modern, mobile-friendly websites that build trust and bring in enquiries.</p>
+              <ul class="svc-tags"><li>Corporate websites</li><li>E-commerce stores</li><li>Domains &amp; hosting</li><li>Business email</li><li>Maintenance &amp; SEO</li></ul>
+            </article>
+            <article class="svc" data-spot>
+              <div class="svc-top">
+                <span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></span>
+                <span class="svc-idx">02.2</span>
+              </div>
+              <h4>CRM</h4>
+              <p>Keep every client, lead and conversation in one place, and never miss a follow-up.</p>
+              <ul class="svc-tags"><li>Lead &amp; client tracking</li><li>Sales pipeline</li><li>SMS &amp; email follow-ups</li><li>Customer reports</li></ul>
+            </article>
+            <article class="svc" data-spot>
+              <div class="svc-top">
+                <span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg></span>
+                <span class="svc-idx">02.3</span>
+              </div>
+              <h4>Stock Management</h4>
+              <p>Know exactly what you have, where it is and when to reorder, across every branch.</p>
+              <ul class="svc-tags"><li>Real-time inventory</li><li>Multi-branch stock</li><li>Reorder alerts</li><li>Suppliers &amp; POs</li></ul>
+            </article>
+            <article class="svc" data-spot>
+              <div class="svc-top">
+                <span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8v4H8z"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg></span>
+                <span class="svc-idx">02.4</span>
+              </div>
+              <h4>Point of Sale</h4>
+              <p>Quick, reliable checkout for shops, restaurants and pharmacies, with sales data you can trust.</p>
+              <ul class="svc-tags"><li>Barcode checkout</li><li>M-Pesa, card &amp; cash</li><li>Receipts &amp; invoices</li><li>Daily sales reports</li></ul>
+            </article>
+            </div>
+            <p class="swipe-hint">Swipe to see all services <span class="swipe-dots"></span></p>
           </div>
-          <h3>Strategic Plans</h3>
-          <p>Clear, realistic plans that give your leadership direction and your team measurable goals.</p>
-          <ul class="service-list">
-            <li>Strategic plan development</li>
-            <li>Business plans &amp; proposals</li>
-            <li>Market &amp; competitor research</li>
-            <li>Planning workshops &amp; retreats</li>
-            <li>Strategy implementation reviews</li>
-          </ul>
-        </article>
-
-        <article class="service-card service-card--feature">
-          <span class="feature-num">C</span>
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 11-5.8-1.6"/></svg>
+        </div>
+        <div class="panel panel--grow" id="growth" role="tabpanel" aria-labelledby="tab-growth">
+          <aside class="panel-intro">
+            <figure class="panel-photo">
+              <img src="https://images.unsplash.com/photo-1573164574511-73c773193279?auto=format&fit=crop&w=1200&q=75" alt="Business team in a strategy session around a boardroom table" loading="lazy">
+              <figcaption><span class="dot"></span>8 services</figcaption>
+            </figure>
+            <span class="panel-num">03</span>
+            <h3>Build the people, plans and partnerships to grow.</h3>
+            <p>Our growth and advisory team helps you train your people, sharpen your strategy, win new business and run a more profitable, better-managed organisation.</p>
+            <a href="#contact" class="btn btn-accent" data-service="Business Growth Solutions">Get a Business quote <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </aside>
+          <div class="panel-main">
+            <div class="panel-cards">
+            <article class="svc" data-spot>
+              <div class="svc-top">
+                <span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+                <span class="svc-idx">03.1</span>
+              </div>
+              <h4>Staff Training</h4>
+              <p>Practical, hands-on training that raises service and performance across your team.</p>
+              <ul class="svc-tags"><li>Customer service</li><li>Sales &amp; negotiation</li><li>Leadership</li><li>Team building</li><li>On-site workshops</li></ul>
+            </article>
+            <article class="svc" data-spot>
+              <div class="svc-top">
+                <span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+                <span class="svc-idx">03.2</span>
+              </div>
+              <h4>Strategic Plans</h4>
+              <p>Clear, realistic plans that give leadership direction and teams measurable goals.</p>
+              <ul class="svc-tags"><li>Strategic plans</li><li>Business plans</li><li>Market research</li><li>Planning retreats</li><li>Implementation reviews</li></ul>
+            </article>
+            <article class="svc" data-spot>
+              <div class="svc-top">
+                <span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 11-5.8-1.6"/></svg></span>
+                <span class="svc-idx">03.3</span>
+              </div>
+              <h4>Marketing Solutions</h4>
+              <p>Marketing that gets you seen by the right people and turns attention into business.</p>
+              <ul class="svc-tags"><li>Marketing strategy</li><li>Social media</li><li>Digital ads</li><li>Events &amp; activations</li><li>Monthly reports</li></ul>
+            </article>
+            <article class="svc" data-spot>
+              <div class="svc-top">
+                <span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5M21 3l-7 7M8 21H3v-5M3 21l7-7"/></svg></span>
+                <span class="svc-idx">03.4</span>
+              </div>
+              <h4>Business Development</h4>
+              <p>Find new customers, markets and partners, and win more of the business you go after.</p>
+              <ul class="svc-tags"><li>Market expansion</li><li>Partnerships</li><li>Lead generation</li><li>Tender writing</li><li>Sales process design</li></ul>
+            </article>
+            <article class="svc" data-spot>
+              <div class="svc-top">
+                <span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V10M18 20V4M6 20v-4"/></svg></span>
+                <span class="svc-idx">03.5</span>
+              </div>
+              <h4>Business Performance</h4>
+              <p>Find where your business is losing time and money, and fix it with clear measures.</p>
+              <ul class="svc-tags"><li>Performance audits</li><li>Process &amp; SOPs</li><li>KPI dashboards</li><li>Cost reviews</li></ul>
+            </article>
+            <article class="svc" data-spot>
+              <div class="svc-top">
+                <span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg></span>
+                <span class="svc-idx">03.6</span>
+              </div>
+              <h4>Enterprise Growth</h4>
+              <p>Structured support that helps SMEs grow into established enterprises.</p>
+              <ul class="svc-tags"><li>SME scale-up</li><li>Business structure</li><li>Investor readiness</li><li>Mentorship</li></ul>
+            </article>
+            <article class="svc" data-spot>
+              <div class="svc-top">
+                <span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></span>
+                <span class="svc-idx">03.7</span>
+              </div>
+              <h4>Corporate Growth &amp; Advisory</h4>
+              <p>Experienced advice for leadership on the decisions that shape your organisation.</p>
+              <ul class="svc-tags"><li>Board advisory</li><li>Governance &amp; policy</li><li>Change management</li><li>Retainer advisory</li></ul>
+            </article>
+            <article class="svc" data-spot>
+              <div class="svc-top">
+                <span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                <span class="svc-idx">03.8</span>
+              </div>
+              <h4>Business Excellence</h4>
+              <p>Build a culture of quality and consistency that your customers notice.</p>
+              <ul class="svc-tags"><li>CX audits</li><li>Quality standards</li><li>Service charters</li><li>Mystery shopping</li></ul>
+            </article>
+            </div>
+            <p class="swipe-hint">Swipe to see all services <span class="swipe-dots"></span></p>
           </div>
-          <h3>Marketing Solutions</h3>
-          <p>Marketing that gets you seen by the right people and turns their attention into business.</p>
-          <ul class="service-list">
-            <li>Marketing strategy &amp; campaigns</li>
-            <li>Social media management</li>
-            <li>Digital advertising</li>
-            <li>Events &amp; brand activations</li>
-            <li>Monthly performance reports</li>
-          </ul>
-        </article>
-
-        <article class="service-card service-card--feature">
-          <span class="feature-num">D</span>
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 3h5v5"/><path d="M21 3l-7 7"/><path d="M8 21H3v-5"/><path d="M3 21l7-7"/></svg>
-          </div>
-          <h3>Business Development</h3>
-          <p>Find new customers, markets and partners, and win more of the business you go after.</p>
-          <ul class="service-list">
-            <li>Market entry &amp; expansion</li>
-            <li>Partnerships &amp; distribution</li>
-            <li>Lead generation programmes</li>
-            <li>Tender &amp; proposal writing</li>
-            <li>Sales process design</li>
-          </ul>
-        </article>
-
-        <article class="service-card service-card--feature">
-          <span class="feature-num">E</span>
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
-          </div>
-          <h3>Business Performance</h3>
-          <p>Find where your business is losing time and money, and fix it with clear measures.</p>
-          <ul class="service-list">
-            <li>Performance audits &amp; reviews</li>
-            <li>Process improvement &amp; SOPs</li>
-            <li>KPI dashboards &amp; reporting</li>
-            <li>Cost &amp; efficiency reviews</li>
-            <li>Performance management systems</li>
-          </ul>
-        </article>
-
-        <article class="service-card service-card--feature">
-          <span class="feature-num">F</span>
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg>
-          </div>
-          <h3>Enterprise Growth</h3>
-          <p>Structured support that helps small and medium businesses grow into established enterprises.</p>
-          <ul class="service-list">
-            <li>SME scale-up programmes</li>
-            <li>Business structure &amp; formalisation</li>
-            <li>Funding &amp; investor readiness</li>
-            <li>Growth roadmaps</li>
-            <li>Mentorship &amp; coaching</li>
-          </ul>
-        </article>
-
-        <article class="service-card service-card--feature">
-          <span class="feature-num">G</span>
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
-          </div>
-          <h3>Corporate Growth &amp; Advisory</h3>
-          <p>Experienced advice for leadership teams on the decisions that shape your organisation.</p>
-          <ul class="service-list">
-            <li>Board &amp; management advisory</li>
-            <li>Governance &amp; policy development</li>
-            <li>Restructuring &amp; change management</li>
-            <li>Risk &amp; compliance guidance</li>
-            <li>Retainer advisory services</li>
-          </ul>
-        </article>
-
-        <article class="service-card service-card--feature">
-          <span class="feature-num">H</span>
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <h3>Business Excellence</h3>
-          <p>Build a culture of quality and consistency that your customers notice and remember.</p>
-          <ul class="service-list">
-            <li>Customer experience audits</li>
-            <li>Quality standards &amp; certification readiness</li>
-            <li>Service charters &amp; standards</li>
-            <li>Continuous improvement programmes</li>
-            <li>Mystery shopper assessments</li>
-          </ul>
-        </article>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- ===== BIG MARQUEE ===== -->
+  <div class="big-marquee" aria-hidden="true"><div class="bm-track"><span>Design</span><i>✦</i><span>Printing</span><i>✦</i><span>Signage</span><i>✦</i><span>Apparel</span><i>✦</i><span>Stationeries</span><i>✦</i><span>Websites</span><i>✦</i><span>CRM</span><i>✦</i><span>Stock Management</span><i>✦</i><span>Point of Sale</span><i>✦</i><span>Staff Training</span><i>✦</i><span>Strategic Plans</span><i>✦</i><span>Marketing</span><i>✦</i><span>Business Development</span><i>✦</i><span>Advisory</span><i>✦</i><span>Business Excellence</span><i>✦</i><span>Design</span><i>✦</i><span>Printing</span><i>✦</i><span>Signage</span><i>✦</i><span>Apparel</span><i>✦</i><span>Stationeries</span><i>✦</i><span>Websites</span><i>✦</i><span>CRM</span><i>✦</i><span>Stock Management</span><i>✦</i><span>Point of Sale</span><i>✦</i><span>Staff Training</span><i>✦</i><span>Strategic Plans</span><i>✦</i><span>Marketing</span><i>✦</i><span>Business Development</span><i>✦</i><span>Advisory</span><i>✦</i><span>Business Excellence</span><i>✦</i></div></div>
 
   <!-- ===== PROCESS ===== -->
-  <section class="section process">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">How We Work</span>
-        <h2>A simple process, from brief to results.</h2>
+  <section class="section" id="process">
+    <div class="wrap process">
+      <div class="process-head">
+        <span class="eyebrow">How we work</span>
+        <h2>From brief to results in <span class="grad">four steps.</span></h2>
+        <p>A simple, transparent process with one point of contact from the first call to after delivery.</p>
+        <a href="#contact" class="btn btn-primary">Start your project <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <ol class="process-grid">
-        <li class="process-step">
-          <span class="process-num">01</span>
-          <h3>Discover</h3>
-          <p>We listen to your goals, budget and timelines, and look at what you already have.</p>
-        </li>
-        <li class="process-step">
-          <span class="process-num">02</span>
-          <h3>Plan &amp; Design</h3>
-          <p>You receive a clear proposal, quotation and designs or samples to approve before we start.</p>
-        </li>
-        <li class="process-step">
-          <span class="process-num">03</span>
-          <h3>Deliver</h3>
-          <p>We produce, build or train to spec and keep you updated at every stage until delivery.</p>
-        </li>
-        <li class="process-step">
-          <span class="process-num">04</span>
-          <h3>Support</h3>
-          <p>We stay on hand after delivery for reorders, system support and your next stage of growth.</p>
-        </li>
+      <ol class="steps">
+        <li class="step" data-spot><span class="step-n">01</span><div><h3>Discover</h3><p>We listen to your goals, budget and timelines, and review what you already have.</p></div></li>
+        <li class="step" data-spot><span class="step-n">02</span><div><h3>Plan &amp; Design</h3><p>You get a clear proposal, quotation and designs or samples to approve before we begin.</p></div></li>
+        <li class="step" data-spot><span class="step-n">03</span><div><h3>Deliver</h3><p>We produce, build or train to spec and keep you updated at every stage until delivery.</p></div></li>
+        <li class="step" data-spot><span class="step-n">04</span><div><h3>Support</h3><p>We stay on hand for reorders, system support and your next stage of growth.</p></div></li>
       </ol>
     </div>
   </section>
 
   <!-- ===== ABOUT ===== -->
-  <section id="about" class="section about">
-    <div class="container">
-      <div class="about-content">
-        <div class="about-media">
-          <div class="about-office-frame">
-            <img src="images/Front-office.jpg" alt="Danvepa office – Pramukh Plaza, Nairobi" class="about-office-img" loading="lazy">
-          </div>
-          <div class="about-badge">
-            <strong>1 partner</strong>
-            <span>3 solutions · 17 services</span>
-          </div>
-        </div>
-        <div class="about-text">
-          <span class="section-tag">About Danvepa</span>
-          <h2 class="about-h2">Your corporate solutions partner in Nairobi.</h2>
-          <p class="lead">
-            Danvepa Enterprises Ltd started in branding and print. Today we are a complete corporate solutions partner covering how your organisation looks, how it runs and how it grows.
-          </p>
-          <p>
-            We work with marketing teams, procurement departments, business owners and managers across healthcare, construction, hospitality, NGOs, churches, media and retail. Every project gets the same care, whether it's a business card reorder, a new stock system or a company-wide training programme.
-          </p>
-          <div class="why-grid">
-            <div class="why-item">
-              <h4>One partner, full service</h4>
-              <p>No coordinating between vendors. One point of contact with full accountability.</p>
-            </div>
-            <div class="why-item">
-              <h4>On brief, on deadline</h4>
-              <p>Standard delivery in 5–7 days, with express 48-hour production for urgent orders.</p>
-            </div>
-            <div class="why-item">
-              <h4>Tender-ready</h4>
-              <p>Experienced with government and corporate procurement processes and documentation.</p>
-            </div>
-            <div class="why-item">
-              <h4>Long-term support</h4>
-              <p>We stay with you after delivery, from reorders to system updates.</p>
-            </div>
-          </div>
-        </div>
+  <section class="section about" id="about">
+    <div class="wrap about-grid">
+      <div class="about-media">
+        <img src="images/Front-office.jpg" alt="Danvepa office at Pramukh Plaza, Nairobi" loading="lazy">
+        <div class="about-chip"><span class="live"></span> Pramukh Plaza, Nairobi</div>
+      </div>
+      <div class="about-copy">
+        <span class="eyebrow">About Danvepa</span>
+        <h2>Built in branding.<br><span class="grad">Grown into solutions.</span></h2>
+        <p class="lead">Danvepa Enterprises Ltd started in branding and print. Today we are a complete corporate solutions partner covering how your organisation looks, runs and grows.</p>
+        <p>We work with marketing teams, procurement departments, business owners and managers across healthcare, construction, hospitality, NGOs, churches, media and retail.</p>
+        <ul class="values">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><b>One partner, full service</b><span>No juggling vendors. One accountable team.</span></div></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><b>On brief, on deadline</b><span>5–7 day standard, 48-hour express.</span></div></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><b>Tender-ready</b><span>Experienced with government &amp; corporate procurement.</span></div></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><b>Long-term support</b><span>We stay with you after delivery.</span></div></li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- ===== PORTFOLIO ===== -->
-  <section id="work" class="section work">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Our Work</span>
-        <h2>Selected Projects</h2>
-        <p class="section-sub">A sample of the work we have delivered for our clients.</p>
+  <!-- ===== WORK ===== -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="head head--split">
+        <div>
+          <span class="eyebrow">Our work</span>
+          <h2>Selected projects</h2>
+        </div>
+        <a href="Danvepa Enterprises Ltd New Catalogue.pdf" class="btn btn-glass" download><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M7 10l5 5 5-5M12 15V3"/></svg> Product catalogue</a>
       </div>
-      <div class="work-grid">
-        <div class="work-item">
-          <img src="images/CORPORATE branding.png" alt="Corporate branding project" loading="lazy">
-          <div class="work-overlay">
-            <span class="work-tag">Branding Solutions</span>
-            <h3>Corporate Identity System</h3>
-            <p>Full brand identity, stationery suite &amp; rollout</p>
-          </div>
-        </div>
-        <div class="work-item">
-          <img src="images/CORPORATE branding 2.png" alt="Corporate print project" loading="lazy">
-          <div class="work-overlay">
-            <span class="work-tag">Branding Solutions</span>
-            <h3>Annual Report &amp; Collateral</h3>
-            <p>Document design, print &amp; delivery</p>
-          </div>
-        </div>
-        <div class="work-item work-item--cta">
-          <div class="work-cta-inner">
-            <p>Your project could be next.</p>
-            <a href="#contact" class="btn btn-primary">Start a Project</a>
-          </div>
-        </div>
+      <div class="work">
+        <figure class="work-item work-item--tall">
+          <img src="images/CORPORATE branding.png" alt="Corporate identity system project" loading="lazy">
+          <figcaption><span>Branding Solutions</span><h3>Corporate Identity System</h3><p>Brand identity, stationery suite &amp; rollout</p></figcaption>
+        </figure>
+        <figure class="work-item">
+          <img src="images/CORPORATE branding 2.png" alt="Annual report and collateral project" loading="lazy">
+          <figcaption><span>Branding Solutions</span><h3>Annual Report &amp; Collateral</h3><p>Document design, print &amp; delivery</p></figcaption>
+        </figure>
+        <a href="#contact" class="work-cta" data-spot>
+          <span class="work-cta-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+          <h3>Your project could be next.</h3>
+          <p>Tell us what you need and get a quotation within one business day.</p>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- ===== CLIENTS ===== -->
-  <section id="clients" class="section clients">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Trusted By</span>
-        <h2>Our Clients</h2>
-        <p class="section-sub">Organisations across Kenya trust Danvepa with their brand, their systems and their growth.</p>
+  <section class="section clients" id="clients">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Clients</span>
+        <h2>Trusted across Kenya</h2>
+        <p>Healthcare · Construction · Hospitality · NGOs · Media · Real Estate · Faith · Food &amp; Beverage</p>
       </div>
     </div>
-
-    <div class="marquee-row">
-      <div class="marquee-track">
-        <div class="marquee-item"><img src="images/Crayson-Pharmacy.jpg"        alt="Crayson Pharmacy"></div>
-        <div class="marquee-item"><img src="images/ARSO.jpg"                    alt="ARSO"></div>
-        <div class="marquee-item"><img src="images/DOCTOR'S-CENTRE.jpg"         alt="Doctor's Centre"></div>
-        <div class="marquee-item"><img src="images/ZOE.jpg"                     alt="Zoe TV"></div>
-        <div class="marquee-item"><img src="images/DORMIN-HOLDINGS-LTD.jpg"     alt="Dormin Holdings"></div>
-        <div class="marquee-item"><img src="images/MOGAYA.jpg"                  alt="Mogaya Contractors"></div>
-        <div class="marquee-item"><img src="images/PLU-DEVELOPERS.jpg"          alt="PLU Developers"></div>
-        <div class="marquee-item"><img src="images/NOVA-ABODE.jpg"              alt="Nova Abode"></div>
-        <div class="marquee-item"><img src="images/THE-KITUI-HOSPITAL.jpg"      alt="The Kitui Hospital"></div>
-        <div class="marquee-item"><img src="images/CARE-CALL.jpg"               alt="CareCall"></div>
-        <div class="marquee-item"><img src="images/PEGADA-PAINTS.jpg"           alt="Pegada Paints"></div>
-        <div class="marquee-item"><img src="images/KAMASHINANI-FOUNDATION.jpg"  alt="Kamashinani Foundation"></div>
-        <div class="marquee-item"><img src="images/ZIJANI.jpg"                  alt="Zijani"></div>
-        <div class="marquee-item"><img src="images/CANAAN-COURIER.jpg"          alt="Canaan Courier"></div>
-        <div class="marquee-item"><img src="images/ADEN-ACE.jpg"                alt="Eden Ace"></div>
-      </div>
-    </div>
-
-    <div class="marquee-row marquee-row--reverse">
-      <div class="marquee-track">
-        <div class="marquee-item"><img src="images/LAOMAI.jpg"                  alt="LaoMai"></div>
-        <div class="marquee-item"><img src="images/PAIX.jpg"                    alt="Paix"></div>
-        <div class="marquee-item"><img src="images/NEROKAS.jpg"                 alt="Nerokas"></div>
-        <div class="marquee-item"><img src="images/SWEET-MEMORIES-GARDEN.jpg"   alt="Sweet Memories Gardens"></div>
-        <div class="marquee-item"><img src="images/A.I.C-NGONG-ROAD.jpg"        alt="A.I.C Ngong Road"></div>
-        <div class="marquee-item"><img src="images/LIFE-POINT-CHURCH.jpg"       alt="Life Point Church"></div>
-        <div class="marquee-item"><img src="images/AGAPE-COMMUNITY-CHURCH.jpg"  alt="Agape Community Church"></div>
-        <div class="marquee-item"><img src="images/3hi.jpg"                     alt="3hi"></div>
-        <div class="marquee-item"><img src="images/BOBBY-PALL.jpg"              alt="BobbyPall Photography"></div>
-        <div class="marquee-item"><img src="images/THE-PORK-PIT.jpg"            alt="The Pork Pit"></div>
-        <div class="marquee-item"><img src="images/M.jpg"                       alt="M"></div>
-        <div class="marquee-item"><img src="images/PESIRA.jpg"                  alt="Pesira"></div>
-        <div class="marquee-item"><img src="images/EATS-BY-MOH.jpg"             alt="Eats by Moh"></div>
-        <div class="marquee-item"><img src="images/HOUSE-OF-GRACE-CHURCH.jpg"   alt="House of Grace Church"></div>
-      </div>
-    </div>
-
-    <div class="container">
-      <p class="clients-note">Healthcare · Construction · Hospitality · NGOs · Media · Real Estate · Faith · Food &amp; Beverage</p>
-    </div>
-  </section>
-
-  <!-- ===== CTA BAND ===== -->
-  <section class="cta-band">
-    <div class="container cta-band-inner">
-      <div>
-        <h2>Ready to build a stronger organisation?</h2>
-        <p>Tell us what you need. We'll respond within one business day.</p>
-      </div>
-      <div class="cta-band-actions">
-        <a href="#contact" class="btn btn-light">Request a Quote</a>
-        <a href="https://wa.me/254725510494" class="btn btn-outline-light" target="_blank" rel="noopener">Chat on WhatsApp</a>
-      </div>
+    <div class="logo-wall">
+      <div class="logo-marquee"><ul class="lm-track"><li><img src="images/Crayson-Pharmacy.jpg" alt="Crayson Pharmacy" loading="lazy"></li><li><img src="images/ARSO.jpg" alt="ARSO" loading="lazy"></li><li><img src="images/DOCTOR'S-CENTRE.jpg" alt="Doctor&#x27;s Centre" loading="lazy"></li><li><img src="images/ZOE.jpg" alt="Zoe TV" loading="lazy"></li><li><img src="images/DORMIN-HOLDINGS-LTD.jpg" alt="Dormin Holdings" loading="lazy"></li><li><img src="images/MOGAYA.jpg" alt="Mogaya Contractors" loading="lazy"></li><li><img src="images/PLU-DEVELOPERS.jpg" alt="PLU Developers" loading="lazy"></li><li><img src="images/NOVA-ABODE.jpg" alt="Nova Abode" loading="lazy"></li><li><img src="images/THE-KITUI-HOSPITAL.jpg" alt="The Kitui Hospital" loading="lazy"></li><li><img src="images/CARE-CALL.jpg" alt="CareCall" loading="lazy"></li><li><img src="images/PEGADA-PAINTS.jpg" alt="Pegada Paints" loading="lazy"></li><li><img src="images/KAMASHINANI-FOUNDATION.jpg" alt="Kamashinani Foundation" loading="lazy"></li><li><img src="images/ZIJANI.jpg" alt="Zijani" loading="lazy"></li><li><img src="images/CANAAN-COURIER.jpg" alt="Canaan Courier" loading="lazy"></li><li><img src="images/ADEN-ACE.jpg" alt="Eden Ace" loading="lazy"></li></ul></div>
+      <div class="logo-marquee lm-reverse"><ul class="lm-track"><li><img src="images/LAOMAI.jpg" alt="LaoMai" loading="lazy"></li><li><img src="images/PAIX.jpg" alt="Paix" loading="lazy"></li><li><img src="images/NEROKAS.jpg" alt="Nerokas" loading="lazy"></li><li><img src="images/SWEET-MEMORIES-GARDEN.jpg" alt="Sweet Memories Gardens" loading="lazy"></li><li><img src="images/A.I.C-NGONG-ROAD.jpg" alt="A.I.C Ngong Road" loading="lazy"></li><li><img src="images/LIFE-POINT-CHURCH.jpg" alt="Life Point Church" loading="lazy"></li><li><img src="images/AGAPE-COMMUNITY-CHURCH.jpg" alt="Agape Community Church" loading="lazy"></li><li><img src="images/3hi.jpg" alt="3hi" loading="lazy"></li><li><img src="images/BOBBY-PALL.jpg" alt="BobbyPall Photography" loading="lazy"></li><li><img src="images/THE-PORK-PIT.jpg" alt="The Pork Pit" loading="lazy"></li><li><img src="images/M.jpg" alt="M" loading="lazy"></li><li><img src="images/PESIRA.jpg" alt="Pesira" loading="lazy"></li><li><img src="images/EATS-BY-MOH.jpg" alt="Eats by Moh" loading="lazy"></li><li><img src="images/HOUSE-OF-GRACE-CHURCH.jpg" alt="House of Grace Church" loading="lazy"></li></ul></div>
     </div>
   </section>
 
   <!-- ===== CONTACT ===== -->
-  <section id="contact" class="section contact">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag section-tag--light">Get in Touch</span>
-        <h2>Request a Quote</h2>
-        <p class="section-sub">Tell us about your project and we'll respond within one business day with a detailed quotation.</p>
+  <section class="section contact" id="contact">
+    <div class="aurora aurora--soft" aria-hidden="true"><i class="a1"></i><i class="a2"></i></div>
+    <div class="wrap contact-grid">
+      <div class="contact-copy">
+        <span class="eyebrow">Get in touch</span>
+        <h2>Let's build something <span class="grad">great together.</span></h2>
+        <p>Tell us about your project and we'll respond within one business day with a detailed quotation.</p>
+        <div class="c-cards">
+          <a href="tel:+254725510494" class="c-card" data-spot><span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg></span><div><small>Call us</small><b>0725 510 494</b></div></a>
+          <a href="https://wa.me/254725510494" class="c-card c-card--wa" target="_blank" rel="noopener" data-spot><span><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span><div><small>WhatsApp</small><b>Chat instantly</b></div></a>
+          <a href="mailto:kinevrin@gmail.com" class="c-card" data-spot><span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></span><div><small>Email</small><b>kinevrin@gmail.com</b></div></a>
+          <div class="c-card" data-spot><span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span><div><small>Visit</small><b>Rm 6, 2nd Flr, Pramukh Plaza</b><em>Munyu Rd – Sheikh Karume Jct, Nairobi</em></div></div>
+        </div>
+        <div class="tender">
+          <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg> Procurement &amp; tenders</h3>
+          <p>Certificate of Registration, KRA Tax Compliance, Company Profile and Capability Statement available on request.</p>
+          <a href="mailto:kinevrin@gmail.com?subject=Tender%20Enquiry">Email the tender team →</a>
+        </div>
       </div>
 
-      <div class="contact-wrapper">
-        <form class="contact-form" id="contactForm" novalidate>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Full Name *</label>
-              <input type="text" id="name" name="name" placeholder="John Kamau" autocomplete="name" required>
-              <span class="field-error" id="nameError"></span>
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address *</label>
-              <input type="email" id="email" name="email" placeholder="john@organisation.co.ke" autocomplete="email" required>
-              <span class="field-error" id="emailError"></span>
-            </div>
+      <form class="form" id="contactForm" novalidate>
+        <h3>Request a quote</h3>
+        <div class="f-row">
+          <div class="field"><input id="name" name="name" placeholder=" " autocomplete="name" required><label for="name">Full name *</label><span class="err" id="nameError"></span></div>
+          <div class="field"><input id="email" name="email" type="email" placeholder=" " autocomplete="email" required><label for="email">Email address *</label><span class="err" id="emailError"></span></div>
+        </div>
+        <div class="f-row">
+          <div class="field"><input id="company" name="company" placeholder=" " autocomplete="organization" required><label for="company">Organisation *</label><span class="err" id="companyError"></span></div>
+          <div class="field"><input id="phone" name="phone" type="tel" placeholder=" " autocomplete="tel"><label for="phone">Phone number</label></div>
+        </div>
+        <div class="f-row">
+          <div class="field field--select">
+            <select id="serviceType" name="serviceType" required>
+              <option value="" disabled selected hidden></option><optgroup label="Branding Solutions"><option value="Branding Solutions – Design">Design</option><option value="Branding Solutions – Printing">Printing</option><option value="Branding Solutions – Signage">Signage</option><option value="Branding Solutions – Apparel">Apparel</option><option value="Branding Solutions – Stationeries">Stationeries</option></optgroup><optgroup label="Software Solutions"><option value="Software Solutions – Websites">Websites</option><option value="Software Solutions – CRM">CRM</option><option value="Software Solutions – Stock Management">Stock Management</option><option value="Software Solutions – Point of Sale">Point of Sale</option></optgroup><optgroup label="Business Growth Solutions"><option value="Business Growth Solutions – Staff Training">Staff Training</option><option value="Business Growth Solutions – Strategic Plans">Strategic Plans</option><option value="Business Growth Solutions – Marketing Solutions">Marketing Solutions</option><option value="Business Growth Solutions – Business Development">Business Development</option><option value="Business Growth Solutions – Business Performance">Business Performance</option><option value="Business Growth Solutions – Enterprise Growth">Enterprise Growth</option><option value="Business Growth Solutions – Corporate Growth &amp; Advisory">Corporate Growth &amp; Advisory</option><option value="Business Growth Solutions – Business Excellence">Business Excellence</option></optgroup>
+              <option value="Multiple Services">Multiple Services</option>
+              <option value="Other / Not Sure">Other / Not Sure</option>
+            </select><label for="serviceType">Service required *</label><span class="err" id="serviceTypeError"></span>
           </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="company">Organisation / Company *</label>
-              <input type="text" id="company" name="company" placeholder="Company or organisation name" autocomplete="organization" required>
-              <span class="field-error" id="companyError"></span>
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="+254 7XX XXX XXX" autocomplete="tel">
-            </div>
+          <div class="field field--select">
+            <select id="budget" name="budget">
+              <option value="" disabled selected hidden></option>
+              <option>Under 50,000</option><option>50,000 – 150,000</option><option>150,000 – 500,000</option>
+              <option>500,000 – 1,000,000</option><option>Above 1,000,000</option><option>To Be Discussed</option>
+            </select><label for="budget">Budget (KES)</label>
           </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="serviceType">Service Required *</label>
-              <select id="serviceType" name="serviceType" required>
-                <option value="" disabled selected>Select a service</option>
-                <optgroup label="Branding Solutions">
-                  <option value="Branding Solutions – Design">Design</option>
-                  <option value="Branding Solutions – Printing">Printing</option>
-                  <option value="Branding Solutions – Signage">Signage</option>
-                  <option value="Branding Solutions – Apparel">Apparel</option>
-                  <option value="Branding Solutions – Stationeries">Stationeries</option>
-                </optgroup>
-                <optgroup label="Software Solutions">
-                  <option value="Software Solutions – Websites">Websites</option>
-                  <option value="Software Solutions – CRM">CRM</option>
-                  <option value="Software Solutions – Stock Management">Stock Management</option>
-                  <option value="Software Solutions – Point of Sale">Point of Sale</option>
-                </optgroup>
-                <optgroup label="Business Growth Solutions">
-                  <option value="Business Growth Solutions – Staff Training">Staff Training</option>
-                  <option value="Business Growth Solutions – Strategic Plans">Strategic Plans</option>
-                  <option value="Business Growth Solutions – Marketing Solutions">Marketing Solutions</option>
-                  <option value="Business Growth Solutions – Business Development">Business Development</option>
-                  <option value="Business Growth Solutions – Business Performance">Business Performance</option>
-                  <option value="Business Growth Solutions – Enterprise Growth">Enterprise Growth</option>
-                  <option value="Business Growth Solutions – Corporate Growth &amp; Advisory">Corporate Growth &amp; Advisory</option>
-                  <option value="Business Growth Solutions – Business Excellence">Business Excellence</option>
-                </optgroup>
-                <option value="Multiple Services">Multiple Services</option>
-                <option value="Other / Not Sure">Other / Not Sure</option>
-              </select>
-              <span class="field-error" id="serviceTypeError"></span>
-            </div>
-            <div class="form-group">
-              <label for="budget">Estimated Budget (KES)</label>
-              <select id="budget" name="budget">
-                <option value="" disabled selected>Select a range</option>
-                <option value="Under 50,000">Under 50,000</option>
-                <option value="50,000 – 150,000">50,000 – 150,000</option>
-                <option value="150,000 – 500,000">150,000 – 500,000</option>
-                <option value="500,000 – 1,000,000">500,000 – 1,000,000</option>
-                <option value="Above 1,000,000">Above 1,000,000</option>
-                <option value="To Be Discussed">To Be Discussed</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="deadline">Deadline / Required By</label>
-              <input type="date" id="deadline" name="deadline">
-            </div>
-            <div class="form-group">
-              <label for="quantity">Scope / Quantity</label>
-              <input type="text" id="quantity" name="quantity" placeholder="e.g. 50 uniforms, 3 branches, 20 staff">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="description">Project Description *</label>
-            <textarea id="description" name="description" rows="5" placeholder="Tell us what you need: goals, requirements, colours, sizes, timelines or anything else we should know..." required></textarea>
-            <span class="field-error" id="descriptionError"></span>
-          </div>
-
-          <div class="form-submit">
-            <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
-              <span class="btn-text">Send Enquiry</span>
-              <span class="btn-loader" hidden>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-                Sending…
-              </span>
-            </button>
-            <button type="button" class="btn btn-whatsapp" id="whatsappBtn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Enquire on WhatsApp
-            </button>
-          </div>
-
-          <div class="form-notice" id="formNotice" role="status" hidden></div>
-        </form>
-
-        <aside class="contact-sidebar">
-          <div class="contact-info-card">
-            <h3>Talk to Us Directly</h3>
-            <a class="contact-detail" href="tel:+254725510494">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
-              0725 510 494
-            </a>
-            <a class="contact-detail" href="mailto:kinevrin@gmail.com">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
-              kinevrin@gmail.com
-            </a>
-            <div class="contact-detail">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <span>Rm 6, 2nd Floor, Pramukh Plaza,<br>Munyu Rd – Sheikh Karume Junction,<br>Nairobi</span>
-            </div>
-          </div>
-
-          <div class="contact-info-card">
-            <h3>Procurement &amp; Tenders</h3>
-            <p>We are experienced with government and corporate procurement. Company documents are available on request:</p>
-            <ul class="doc-list">
-              <li>Certificate of Registration</li>
-              <li>KRA Tax Compliance Certificate</li>
-              <li>Company Profile &amp; Portfolio</li>
-              <li>Capability Statement</li>
-            </ul>
-            <a href="mailto:kinevrin@gmail.com?subject=Tender%20Enquiry" class="btn btn-ghost-light btn-sm">Email Tender Team</a>
-          </div>
-        </aside>
-      </div>
+        </div>
+        <div class="f-row">
+          <div class="field"><input id="deadline" name="deadline" type="date" placeholder=" "><label for="deadline" class="lbl-fixed">Required by</label></div>
+          <div class="field"><input id="quantity" name="quantity" placeholder=" "><label for="quantity">Scope / quantity</label></div>
+        </div>
+        <div class="field"><textarea id="description" name="description" rows="4" placeholder=" " required></textarea><label for="description">Tell us about your project *</label><span class="err" id="descriptionError"></span></div>
+        <div class="f-actions">
+          <button type="submit" class="btn btn-primary btn-lg" id="submitBtn"><span class="btn-text">Send enquiry</span><span class="btn-loader" hidden>Sending…</span></button>
+          <button type="button" class="btn btn-wa btn-lg" id="whatsappBtn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Send via WhatsApp</button>
+        </div>
+        <div class="notice" id="formNotice" role="status" hidden></div>
+      </form>
     </div>
   </section>
+  </main>
 
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="footer-logo-wrap"><img src="images/Danvepa-logo.png" alt="Danvepa" class="footer-logo"></div>
-          <p><strong>Danvepa Enterprises Ltd</strong><br>Corporate Solutions · Nairobi, Kenya</p>
-          <p class="footer-slogan">A delighted customer is our pleasure.</p>
+    <div class="wrap">
+      <div class="f-top">
+        <div class="f-brand">
+          <span class="f-logo"><img src="images/Danvepa-logo.png" alt="Danvepa"></span>
+          <p><b>Danvepa Enterprises Ltd</b><br>Corporate Solutions · Nairobi, Kenya</p>
+          <p class="f-slogan">A delighted customer is our pleasure.</p>
         </div>
-        <div class="footer-links">
-          <h4><a href="#branding">Branding Solutions</a></h4>
-          <ul>
-            <li><a href="#branding">Design</a></li>
-            <li><a href="#branding">Printing</a></li>
-            <li><a href="#branding">Signage</a></li>
-            <li><a href="#branding">Apparel</a></li>
-            <li><a href="#branding">Stationeries</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h4><a href="#software">Software Solutions</a></h4>
-          <ul>
-            <li><a href="#software">Websites</a></li>
-            <li><a href="#software">CRM</a></li>
-            <li><a href="#software">Stock Management</a></li>
-            <li><a href="#software">Point of Sale</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h4><a href="#growth">Business Growth</a></h4>
-          <ul>
-            <li><a href="#growth">Staff Training</a></li>
-            <li><a href="#growth">Strategic Plans</a></li>
-            <li><a href="#growth">Marketing Solutions</a></li>
-            <li><a href="#growth">Business Development</a></li>
-            <li><a href="#growth">Business Performance</a></li>
-            <li><a href="#growth">Enterprise Growth</a></li>
-            <li><a href="#growth">Corporate Advisory</a></li>
-            <li><a href="#growth">Business Excellence</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="tel:+254725510494">0725 510 494</a></li>
-            <li><a href="mailto:kinevrin@gmail.com">kinevrin@gmail.com</a></li>
-            <li><span>Pramukh Plaza, Nairobi</span></li>
-            <li><a href="Danvepa Enterprises Ltd New Catalogue.pdf" download>Download Catalogue</a></li>
-          </ul>
-        </div>
+        <div class="f-col"><h4>Branding Solutions</h4><ul><li><a href="#branding" data-goto="branding">Design</a></li><li><a href="#branding" data-goto="branding">Printing</a></li><li><a href="#branding" data-goto="branding">Signage</a></li><li><a href="#branding" data-goto="branding">Apparel</a></li><li><a href="#branding" data-goto="branding">Stationeries</a></li></ul></div><div class="f-col"><h4>Software Solutions</h4><ul><li><a href="#software" data-goto="software">Websites</a></li><li><a href="#software" data-goto="software">CRM</a></li><li><a href="#software" data-goto="software">Stock Management</a></li><li><a href="#software" data-goto="software">Point of Sale</a></li></ul></div><div class="f-col"><h4>Business Growth Solutions</h4><ul><li><a href="#growth" data-goto="growth">Staff Training</a></li><li><a href="#growth" data-goto="growth">Strategic Plans</a></li><li><a href="#growth" data-goto="growth">Marketing Solutions</a></li><li><a href="#growth" data-goto="growth">Business Development</a></li><li><a href="#growth" data-goto="growth">Business Performance</a></li><li><a href="#growth" data-goto="growth">Enterprise Growth</a></li><li><a href="#growth" data-goto="growth">Corporate Growth &amp; Advisory</a></li><li><a href="#growth" data-goto="growth">Business Excellence</a></li></ul></div>
       </div>
-      <div class="footer-bottom">
+      <div class="f-giant" aria-hidden="true">DANVEPA</div>
+      <div class="f-bottom">
         <p>&copy; <span id="year">2026</span> Danvepa Enterprises Ltd. All rights reserved.</p>
-        <a href="#home" class="back-top">Back to top ↑</a>
+        <a href="#home">Back to top ↑</a>
       </div>
     </div>
   </footer>
 
-  <a href="https://wa.me/254725510494" class="wa-float" target="_blank" rel="noopener" aria-label="Chat with Danvepa on WhatsApp">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </a>
+  <!-- Mobile action bar -->
+  <nav class="action-bar" aria-label="Quick actions">
+    <a href="tel:+254725510494"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg><span>Call</span></a>
+    <a href="https://wa.me/254725510494" target="_blank" rel="noopener" class="ab-wa"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>WhatsApp</span></a>
+    <a href="#contact" class="ab-main"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg><span>Get Quote</span></a>
+  </nav>
+
+  <a href="https://wa.me/254725510494" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 
   <script src="js/script.js"></script>
 </body>

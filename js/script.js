@@ -4,14 +4,16 @@
 
 const WHATSAPP_NUMBER = '254725510494';
 const CONTACT_EMAIL   = 'kinevrin@gmail.com';
+const $  = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ---------- Footer year ---------- */
-const yearEl = document.getElementById('year');
+const yearEl = $('#year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-/* ---------- Marquee — clone items for seamless infinite loop ---------- */
-document.querySelectorAll('.marquee-track, .hero-slogan-track').forEach(track => {
-  // Duplicate children so the track is 2× wide; CSS animates exactly -50%
+/* ---------- Marquees: duplicate items for a seamless loop ---------- */
+$$('.lm-track').forEach(track => {
   Array.from(track.children).forEach(item => {
     const clone = item.cloneNode(true);
     clone.setAttribute('aria-hidden', 'true');
@@ -19,214 +21,273 @@ document.querySelectorAll('.marquee-track, .hero-slogan-track').forEach(track =>
   });
 });
 
-/* ---------- Header scroll effect ---------- */
-const header = document.getElementById('header');
+/* ---------- Header: shrink on scroll, hide on scroll down ---------- */
+const header    = $('#header');
+const actionBar = $('.action-bar');
+let lastY = window.scrollY;
+
 window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 40);
+  const y = window.scrollY;
+  const goingDown = y > lastY && y > 400;
+  header.classList.toggle('scrolled', y > 30);
+  if (!document.body.classList.contains('menu-open')) header.classList.toggle('hide', goingDown);
+  if (actionBar) actionBar.classList.toggle('hide', goingDown && y < document.body.scrollHeight - innerHeight - 200);
+  lastY = y;
 }, { passive: true });
 
-/* ---------- Mobile nav toggle ---------- */
-const navToggle = document.getElementById('navToggle');
-const nav = document.getElementById('nav');
+/* ---------- Mobile menu ---------- */
+const menuBtn = $('#menuBtn');
+const mMenu   = $('#mobileMenu');
 
-function closeNav() {
-  nav.classList.remove('open');
-  navToggle.classList.remove('open');
-  navToggle.setAttribute('aria-expanded', 'false');
+function setMenu(open) {
+  document.body.classList.toggle('menu-open', open);
+  menuBtn.setAttribute('aria-expanded', open);
+  menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  mMenu.setAttribute('aria-hidden', !open);
+  document.body.style.overflow = open ? 'hidden' : '';
+  if (open) header.classList.remove('hide');
 }
+menuBtn.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+$$('a', mMenu).forEach(a => a.addEventListener('click', () => setMenu(false)));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 
-navToggle.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  navToggle.classList.toggle('open', open);
-  navToggle.setAttribute('aria-expanded', open);
-});
-
-nav.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    closeNav();
-    link.blur(); // collapse the desktop dropdown after choosing an item
-  });
-});
-
-/* ---------- Active nav link on scroll ---------- */
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav > ul > li > a[href^="#"]');
-const solutionIds = ['solutions', 'branding', 'software', 'growth'];
-
-function setActiveLink() {
-  const y = window.scrollY + 140;
-  let current = '';
-  sections.forEach(sec => { if (y >= sec.offsetTop) current = sec.id; });
-  if (current === 'stats') current = 'home';
-  if (solutionIds.includes(current)) current = 'solutions';
-  navLinks.forEach(link => {
-    link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
-  });
-}
-window.addEventListener('scroll', setActiveLink, { passive: true });
-setActiveLink();
-
-/* ---------- Animated stat counters ---------- */
-function animateCounter(el) {
-  const target = parseInt(el.dataset.target, 10);
-  const duration = 1600;
-  const start = performance.now();
-  const ease = t => 1 - Math.pow(1 - t, 3);
-
-  function update(now) {
-    const progress = Math.min((now - start) / duration, 1);
-    el.textContent = Math.round(ease(progress) * target);
-    if (progress < 1) requestAnimationFrame(update);
-  }
-  requestAnimationFrame(update);
-}
-
-const statsObserver = new IntersectionObserver(entries => {
+/* ---------- Active nav link ---------- */
+const navLinks = $$('.nav > ul > li > a');
+const sectionMap = { solutions: '#solutions', explore: '#solutions', about: '#about', process: '#process', work: '#work', clients: '#clients' };
+const spy = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.querySelectorAll('.stat-number').forEach(animateCounter);
-      statsObserver.unobserve(entry.target);
-    }
+    if (!entry.isIntersecting) return;
+    const href = sectionMap[entry.target.id];
+    navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === href));
   });
-}, { threshold: 0.4 });
+}, { rootMargin: '-45% 0px -50% 0px' });
+$$('main section[id]').forEach(s => spy.observe(s));
 
-const statsStrip = document.querySelector('.stats-strip');
-if (statsStrip) statsObserver.observe(statsStrip);
+/* ---------- Hero word rotator ---------- */
+const words = $$('.rotator b');
+if (words.length > 1 && !reduceMotion) {
+  let i = 0;
+  setInterval(() => {
+    const cur = words[i];
+    cur.classList.remove('is-on');
+    cur.classList.add('is-out');
+    setTimeout(() => cur.classList.remove('is-out'), 600);
+    i = (i + 1) % words.length;
+    words[i].classList.add('is-on');
+  }, 2600);
+}
+
+/* ---------- Counters ---------- */
+function countUp(el) {
+  const target = +el.dataset.count;
+  if (reduceMotion) { el.textContent = target; return; }
+  const start = performance.now(), dur = 1600;
+  const tick = now => {
+    const p = Math.min((now - start) / dur, 1);
+    el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target);
+    if (p < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+const counterObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { countUp(e.target); counterObs.unobserve(e.target); } });
+}, { threshold: 0.6 });
+$$('[data-count]').forEach(el => counterObs.observe(el));
+
+/* ---------- Solution tabs ---------- */
+const tabs    = $$('.tab');
+const panels  = $$('.panel');
+const glider  = $('.tab-glider');
+const explore = $('#explore');
+
+function moveGlider(tab) {
+  if (!glider || !tab) return;
+  glider.style.width = `${tab.offsetWidth}px`;
+  glider.style.transform = `translateX(${tab.offsetLeft}px)`;
+}
+
+function activateTab(id, { scroll = false } = {}) {
+  const tab = tabs.find(t => t.dataset.tab === id);
+  if (!tab) return;
+  tabs.forEach(t => {
+    const on = t === tab;
+    t.classList.toggle('is-active', on);
+    t.setAttribute('aria-selected', on);
+    t.tabIndex = on ? 0 : -1;
+  });
+  panels.forEach(p => p.classList.toggle('is-active', p.id === id));
+  moveGlider(tab);
+  tab.scrollIntoView({ block: 'nearest', inline: 'center', behavior: reduceMotion ? 'auto' : 'smooth' });
+  updateDots($(`#${id} .panel-cards`));
+  if (scroll) explore.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+}
+
+tabs.forEach((tab, idx) => {
+  tab.addEventListener('click', () => activateTab(tab.dataset.tab));
+  tab.addEventListener('keydown', e => {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    const next = tabs[(idx + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+    next.focus();
+    activateTab(next.dataset.tab);
+  });
+});
+window.addEventListener('resize', () => moveGlider($('.tab.is-active')));
+window.addEventListener('load', () => moveGlider($('.tab.is-active')));
+moveGlider($('.tab.is-active'));
+
+// Links to #branding / #software / #growth open the right tab
+$$('[data-goto]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    activateTab(link.dataset.goto, { scroll: true });
+    history.replaceState(null, '', `#${link.dataset.goto}`);
+  });
+});
+if (['#branding', '#software', '#growth'].includes(location.hash)) {
+  activateTab(location.hash.slice(1));
+  setTimeout(() => explore.scrollIntoView(), 50);
+}
+
+// Panel CTA pre-selects the segment in the quote form
+$$('.panel-intro [data-service]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const select = $('#serviceType');
+    const group = $$('optgroup', select).find(g => g.label === btn.dataset.service);
+    if (group && !select.value) { select.value = group.querySelector('option').value; select.classList.add('has-value'); }
+  });
+});
+
+/* ---------- Swipe dots for mobile card carousels ---------- */
+function updateDots(track) {
+  if (!track) return;
+  const dots = track.parentElement.querySelector('.swipe-dots');
+  if (!dots) return;
+  const cards = track.children.length;
+  if (dots.children.length !== cards) dots.innerHTML = '<i></i>'.repeat(cards);
+  const card = track.children[0];
+  const step = card ? card.getBoundingClientRect().width + 12 : 1;
+  const idx = Math.min(cards - 1, Math.round(track.scrollLeft / step));
+  Array.from(dots.children).forEach((d, i) => d.classList.toggle('on', i === idx));
+}
+$$('.panel-cards').forEach(track => {
+  updateDots(track);
+  track.addEventListener('scroll', () => updateDots(track), { passive: true });
+});
+
+/* ---------- Cursor spotlight on cards ---------- */
+if (window.matchMedia('(hover: hover)').matches) {
+  document.addEventListener('pointermove', e => {
+    const el = e.target.closest('[data-spot]');
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty('--mx', `${e.clientX - r.left}px`);
+    el.style.setProperty('--my', `${e.clientY - r.top}px`);
+  }, { passive: true });
+}
 
 /* ---------- Scroll reveal ---------- */
-const revealEls = document.querySelectorAll(
-  '.section-header, .solution-card, .segment-head, .service-card, .process-step, .about-media, .about-text, .work-item, .contact-form, .contact-info-card, .mock-app'
-);
-
-revealEls.forEach(el => {
-  el.classList.add('reveal');
-  const siblings = el.parentElement.querySelectorAll(':scope > .reveal');
-  const idx = Array.from(siblings).indexOf(el);
-  if (idx > 0 && idx <= 5) el.classList.add(`reveal-delay-${idx}`);
+const revealTargets = [
+  '.head', '.bento > *', '.tabs', '.process-head', '.step', '.about-media', '.about-copy',
+  '.work > *', '.contact-copy', '.form', '.f-top > *'
+];
+$$(revealTargets.join(',')).forEach(el => {
+  el.setAttribute('data-reveal', '');
+  const sibs = $$(':scope > [data-reveal]', el.parentElement);
+  el.style.setProperty('--d', `${Math.min(sibs.indexOf(el), 5) * 0.08}s`);
 });
-
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+$$('[data-reveal]').forEach(el => revealObs.observe(el));
 
-revealEls.forEach(el => revealObserver.observe(el));
+/* ---------- Form ---------- */
+const deadline = $('#deadline');
+if (deadline) deadline.min = new Date().toISOString().split('T')[0];
 
-/* ---------- Set min date to today ---------- */
-const deadlineInput = document.getElementById('deadline');
-if (deadlineInput) deadlineInput.min = new Date().toISOString().split('T')[0];
+$$('.field select').forEach(sel => sel.addEventListener('change', () => sel.classList.toggle('has-value', !!sel.value)));
 
-/* ---------- Form helpers ---------- */
-const $ = id => document.getElementById(id);
-
-function getFormValues() {
+function getValues() {
+  const v = id => $(`#${id}`).value.trim();
   return {
-    name:        $('name').value.trim(),
-    email:       $('email').value.trim(),
-    company:     $('company').value.trim(),
-    phone:       $('phone').value.trim(),
-    serviceType: $('serviceType').value,
-    budget:      $('budget').value,
-    deadline:    $('deadline').value,
-    quantity:    $('quantity').value.trim(),
-    description: $('description').value.trim()
+    name: v('name'), email: v('email'), company: v('company'), phone: v('phone'),
+    serviceType: v('serviceType'), budget: v('budget'), deadline: v('deadline'),
+    quantity: v('quantity'), description: v('description')
   };
 }
 
-function showError(field, msg) {
-  const errEl = $(`${field}Error`);
-  if (errEl) errEl.textContent = msg;
-  $(field).classList.toggle('error', !!msg);
+function setError(field, msg) {
+  $(`#${field}Error`).textContent = msg;
+  $(`#${field}`).classList.toggle('error', !!msg);
 }
 
-function validateForm(v) {
-  const checks = [
-    ['name',        !v.name,                                    'Please enter your name.'],
+function validate(v) {
+  const rules = [
+    ['name',        !v.name,                                     'Please enter your name.'],
     ['email',       !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email), 'Please enter a valid email address.'],
-    ['company',     !v.company,                                 'Please enter your organisation name.'],
-    ['serviceType', !v.serviceType,                             'Please select a service.'],
-    ['description', v.description.length < 20,                  'Please describe your project in at least 20 characters.']
+    ['company',     !v.company,                                  'Please enter your organisation.'],
+    ['serviceType', !v.serviceType,                              'Please choose a service.'],
+    ['description', v.description.length < 20,                   'Please add a few more details (20+ characters).']
   ];
-  let valid = true;
-  checks.forEach(([field, failed, msg]) => {
-    showError(field, failed ? msg : '');
-    if (failed) valid = false;
-  });
-  return valid;
+  let ok = true;
+  rules.forEach(([f, bad, msg]) => { setError(f, bad ? msg : ''); if (bad) ok = false; });
+  if (!ok) $('.field .error')?.focus();
+  return ok;
 }
 
-/* ---------- Contact form submission ---------- */
-const contactForm = $('contactForm');
-const submitBtn   = $('submitBtn');
-const formNotice  = $('formNotice');
-
-function setLoading(loading) {
-  submitBtn.disabled = loading;
-  submitBtn.querySelector('.btn-text').hidden = loading;
-  submitBtn.querySelector('.btn-loader').hidden = !loading;
-}
+const form      = $('#contactForm');
+const submitBtn = $('#submitBtn');
+const notice    = $('#formNotice');
 
 function showNotice(type, html) {
-  formNotice.className = `form-notice ${type}`;
-  formNotice.innerHTML = html;
-  formNotice.hidden = false;
+  notice.className = `notice ${type}`;
+  notice.innerHTML = html;
+  notice.hidden = false;
 }
 
-if (contactForm) {
-  contactForm.addEventListener('submit', async e => {
-    e.preventDefault();
-    const values = getFormValues();
-    if (!validateForm(values)) return;
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  const values = getValues();
+  if (!validate(values)) return;
 
-    setLoading(true);
-    formNotice.hidden = true;
+  submitBtn.disabled = true;
+  $('.btn-text', submitBtn).hidden = true;
+  $('.btn-loader', submitBtn).hidden = false;
+  notice.hidden = true;
 
-    try {
-      const res = await fetch('/.netlify/functions/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values)
-      });
-      const result = await res.json().catch(() => ({}));
+  try {
+    const res = await fetch('/.netlify/functions/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(values)
+    });
+    const result = await res.json().catch(() => ({}));
+    if (!res.ok || !result.success) throw new Error(result.message || 'unavailable');
+    showNotice('success', '✓ Your enquiry has been sent. We will respond within one business day.');
+    form.reset();
+    $$('.field select').forEach(s => s.classList.remove('has-value'));
+  } catch {
+    showNotice('error',
+      `We couldn't send your enquiry online just now. Please use <strong>Send via WhatsApp</strong> ` +
+      `or email <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>.`);
+  } finally {
+    submitBtn.disabled = false;
+    $('.btn-text', submitBtn).hidden = false;
+    $('.btn-loader', submitBtn).hidden = true;
+  }
+});
 
-      if (!res.ok || !result.success) throw new Error(result.message || 'unavailable');
-
-      showNotice('success', '✓ Your enquiry has been sent. We will respond within one business day.');
-      contactForm.reset();
-    } catch (err) {
-      showNotice('error',
-        `We couldn't send your enquiry online just now. Please tap <strong>Enquire on WhatsApp</strong> ` +
-        `or email us at <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>.`);
-    } finally {
-      setLoading(false);
-    }
-  });
-}
-
-/* ---------- WhatsApp enquiry ---------- */
-const whatsappBtn = $('whatsappBtn');
-if (whatsappBtn) {
-  whatsappBtn.addEventListener('click', () => {
-    const v = getFormValues();
-    const service = $('serviceType');
-    const serviceLabel = service.value ? service.value : '';
-
-    let msg = 'Hello Danvepa Enterprises,\n\nI would like to make an enquiry. Here are my details:\n\n';
-    if (v.name)         msg += `*Name:* ${v.name}\n`;
-    if (v.email)        msg += `*Email:* ${v.email}\n`;
-    if (v.company)      msg += `*Organisation:* ${v.company}\n`;
-    if (v.phone)        msg += `*Phone:* ${v.phone}\n`;
-    if (serviceLabel)   msg += `*Service Required:* ${serviceLabel}\n`;
-    if (v.budget)       msg += `*Budget (KES):* ${v.budget}\n`;
-    if (v.quantity)     msg += `*Scope / Quantity:* ${v.quantity}\n`;
-    if (v.deadline)     msg += `*Deadline:* ${v.deadline}\n`;
-    if (v.description)  msg += `\n*Project Details:*\n${v.description}\n`;
-    msg += '\nKindly advise on availability and pricing. Thank you.';
-
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
-  });
-}
+$('#whatsappBtn').addEventListener('click', () => {
+  const v = getValues();
+  let msg = 'Hello Danvepa Enterprises,\n\nI would like to make an enquiry:\n\n';
+  if (v.name)        msg += `*Name:* ${v.name}\n`;
+  if (v.email)       msg += `*Email:* ${v.email}\n`;
+  if (v.company)     msg += `*Organisation:* ${v.company}\n`;
+  if (v.phone)       msg += `*Phone:* ${v.phone}\n`;
+  if (v.serviceType) msg += `*Service:* ${v.serviceType}\n`;
+  if (v.budget)      msg += `*Budget (KES):* ${v.budget}\n`;
+  if (v.quantity)    msg += `*Scope / Quantity:* ${v.quantity}\n`;
+  if (v.deadline)    msg += `*Required by:* ${v.deadline}\n`;
+  if (v.description) msg += `\n*Project details:*\n${v.description}\n`;
+  msg += '\nKindly advise on availability and pricing. Thank you.';
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+});
