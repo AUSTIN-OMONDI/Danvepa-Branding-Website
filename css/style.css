@@ -876,3 +876,29 @@ a.c-card:hover { border-color: var(--line-2); transform: translateY(-3px); }
 }
 .lm-track li { display: flex; align-items: center; justify-content: center; }
 .lm-track img { width: auto; height: auto; max-width: 100%; max-height: 100%; }
+
+/* ==========================================================================
+   WHAT WE DELIVER (work gallery)
+   ========================================================================== */
+.work-sub { color: var(--muted); max-width: 520px; }
+.work { grid-template-columns: repeat(3, 1fr); grid-template-rows: none; grid-auto-rows: 280px; }
+.work-item { min-height: 0; }
+.work-item--tall { grid-row: span 2; min-height: 0; }
+.work--brand { --acc: var(--red); }
+.work--soft  { --acc: var(--blue); }
+.work--grow  { --acc: var(--gold); }
+.work-item figcaption span { background: var(--acc); color: #fff; }
+.work--grow figcaption span { color: #1a1204; }
+.work-item::after { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--acc) 0%, transparent); transition: box-shadow .4s; pointer-events: none; }
+.work-item:hover::after { box-shadow: inset 0 0 0 2px var(--acc); }
+.work-cta { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 1.5rem; min-height: 0; padding: 1.8rem 2rem; }
+.work-cta-icon { margin-bottom: 0; flex-shrink: 0; }
+.work-cta h3 { margin: 0 0 0.3rem; }
+@media (max-width: 1024px) {
+  .work { grid-template-columns: 1fr 1fr; grid-auto-rows: 260px; }
+}
+@media (max-width: 767px) {
+  .work { grid-template-columns: 1fr; grid-auto-rows: 300px; }
+  .work-item--tall { grid-row: span 1; }
+  .work-cta { flex-direction: column; align-items: flex-start; }
+}
