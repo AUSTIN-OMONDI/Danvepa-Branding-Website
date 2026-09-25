@@ -852,3 +852,27 @@ a.c-card:hover { border-color: var(--line-2); transform: translateY(-3px); }
   .tab.is-active { border-color: color-mix(in srgb, var(--acc) 60%, transparent); background: color-mix(in srgb, var(--acc) 14%, transparent); }
   .tab-glider { display: none; }
 }
+
+/* ==========================================================================
+   CLIENT LOGOS — always full colour, larger frames that fit the whole logo
+   ========================================================================== */
+.logo-marquee { padding: 8px 0; }
+.lm-track { gap: 1rem; }
+.lm-track li,
+.logo-wall .lm-track li {
+  width: 168px; height: 120px;
+  padding: 12px;
+  border-radius: 18px;
+  background: #fff;
+  filter: none;
+  opacity: 1;
+  box-shadow: 0 8px 24px -12px rgba(0,0,0,0.6);
+}
+.lm-track li:hover { filter: none; transform: translateY(-4px); box-shadow: 0 16px 32px -12px rgba(0,0,0,0.7); }
+.lm-track img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: normal; }
+.logo-wall .lm-track li { width: 190px; height: 136px; }
+@media (max-width: 767px) {
+  .lm-track li, .logo-wall .lm-track li { width: 128px; height: 96px; padding: 10px; border-radius: 14px; }
+}
+.lm-track li { display: flex; align-items: center; justify-content: center; }
+.lm-track img { width: auto; height: auto; max-width: 100%; max-height: 100%; }
